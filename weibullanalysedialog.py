@@ -74,6 +74,10 @@ class ValueWidget(QWidget, Ui_ValueWidgetBase):
         self.standortname = None
         self.fileName = None
         
+        # Statistics (>=1.9)
+        self.statsSampleSize = 2500000
+        self.stats = {} # stats per layer        
+        
         self.iface=iface
         self.canvas=self.iface.mapCanvas()
         self.legend=self.iface.legendInterface()
@@ -209,7 +213,7 @@ class ValueWidget(QWidget, Ui_ValueWidgetBase):
         combobox.clear()
         reg = QgsMapLayerRegistry.instance()
         for ( key, layer ) in reg.mapLayers().iteritems():
-            if layer.type() == QgsMapLayer.RasterLayer and ( layer.usesProvider() and layer.providerKey() == 'gdal' ): combobox.addItem( layer.name(), key )
+            if layer.type() == QgsMapLayer.RasterLayer: combobox.addItem( layer.name(), key )
          
         idx = combobox.findData( layerid )
         if idx != -1:
@@ -219,7 +223,7 @@ class ValueWidget(QWidget, Ui_ValueWidgetBase):
     def getRasterLayerByName( self,  myName ):
         layerMap = QgsMapLayerRegistry.instance().mapLayers()
         for name, layer in layerMap.iteritems():
-            if layer.type() == QgsMapLayer.RasterLayer and ( layer.usesProvider() and layer.providerKey() == 'gdal' ) and layer.name() == myName:
+            if layer.type() == QgsMapLayer.RasterLayer and layer.name() == myName:
                 if layer.isValid():
                     return layer
                 else:
@@ -335,22 +339,22 @@ class ValueWidget(QWidget, Ui_ValueWidgetBase):
         self.ymin=1e38
         self.ymax=-1e38
 
-        mapCanvasSrs = self.iface.mapCanvas().mapRenderer().destinationSrs()
+        mapCanvasSrs = self.iface.mapCanvas().mapRenderer().destinationCrs()
 
         # TODO - calculate the min/max values only once, instead of every time!!!
         # keep them in a dict() with key=layer.id()
                 
         for layer in rasterlayers:
             layername=unicode(layer.name())
-            layerSrs = layer.srs()
+            layerCrs = layer.crs()
             pos = position         
 
             # if given no position, get dummy values
             if position is None:
                 pos = QgsPoint(0,0)
             # transform points if needed
-            elif not mapCanvasSrs == layerSrs and self.iface.mapCanvas().hasCrsTransformEnabled():
-                srsTransform = QgsCoordinateTransform(mapCanvasSrs, layerSrs)
+            elif not mapCanvasSrs == layerCrs and self.iface.mapCanvas().hasCrsTransformEnabled():
+                srsTransform = QgsCoordinateTransform(mapCanvasSrs, layerCrs)
                 try:
                     pos = srsTransform.transform(position)
                 except QgsCsException, err:
@@ -373,7 +377,7 @@ class ValueWidget(QWidget, Ui_ValueWidgetBase):
                             ident[iband] = str(self.tr('out of extent'))
                     # we can only use context if layer is not projected
                     elif canvas.hasCrsTransformEnabled() and layer.dataProvider().crs() != canvas.mapRenderer().destinationCrs():
-                        ident = layer.dataProvider().identify(pos, QgsRasterDataProvider.IdentifyFormatValue )
+                        ident = layer.dataProvider().identify(pos, QgsRaster.IdentifyFormatValue ).results()
                     else:
                         extent = canvas.extent()
                         width = round(extent.width() / canvas.mapUnitsPerPixel());
@@ -381,7 +385,7 @@ class ValueWidget(QWidget, Ui_ValueWidgetBase):
 
                         extent = canvas.mapRenderer().mapToLayerCoordinates( layer, extent );
 
-                        ident = layer.dataProvider().identify(pos, QgsRasterDataProvider.IdentifyFormatValue, canvas.extent(), width, height )
+                        ident = layer.dataProvider().identify(pos, QgsRaster.IdentifyFormatValue, canvas.extent(), width, height ).results()
                     if not len( ident ) > 0:
                         continue
 
@@ -397,26 +401,19 @@ class ValueWidget(QWidget, Ui_ValueWidgetBase):
 
                     if not ident or not ident.has_key( iband ): # should not happen
                         bandvalue = "?"
-                    else:
-                        # test if value is str (out of extent)
-                        # this is kind of contrived, but trying to minimize changes
-                        if isinstance(ident[iband], str):
-                            bandvalue = ident[iband]
-                        else:
-                            doubleValue =  ident[iband].toDouble()[0]
-                            if layer.dataProvider().isNoDataValue ( iband, doubleValue ):  
-                                bandvalue = "no data"
-                            else:
-                                bandvalue = QgsRasterBlock.printValue( doubleValue )
+                    else:                  
+                        bandvalue = ident[iband]
+                        if bandvalue is None:
+                            bandvalue = "no data"
 
-                    self.values.append((layernamewithband,bandvalue))
+                    self.values.append((layernamewithband,str(bandvalue)))
 
                     if needextremum:
                         # estimated statistics
                         stats = self.getStats ( layer, iband )
-                    if stats:
-                        self.ymin=min(self.ymin,stats.minimumValue)
-                        self.ymax=max(self.ymax,stats.maximumValue)
+                        if stats:
+                            self.ymin=min(self.ymin,stats.minimumValue)
+                            self.ymax=max(self.ymax,stats.maximumValue)
 
             else: # QGIS < 1.9
                 isok,ident = layer.identify(pos)
@@ -456,6 +453,20 @@ class ValueWidget(QWidget, Ui_ValueWidgetBase):
             self.plot()
         else:
             self.printInTable()
+
+    # get cached statistics for layer and band or None if not calculated
+    def getStats ( self, layer, bandNo, force = False ):
+        if self.stats.has_key( layer ):
+            if self.stats[layer].has_key( bandNo ) : 
+                return self.stats[layer][bandNo]
+        else:
+            self.stats[layer] = {}
+      
+        if force or layer.dataProvider().hasStatistics( bandNo, QgsRasterBandStats.Min | QgsRasterBandStats.Min, QgsRectangle(), self.statsSampleSize ):
+            self.stats[layer][bandNo] = layer.dataProvider().bandStatistics( bandNo, QgsRasterBandStats.Min | QgsRasterBandStats.Min, QgsRectangle(), self.statsSampleSize )
+            return self.stats[layer][bandNo]
+
+        return None
 
     # Gebe Rasterwerte als Tabelle aus (from value tool)
     def printInTable(self):
