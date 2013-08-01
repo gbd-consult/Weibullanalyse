@@ -1,0 +1,6 @@
+<RCC> 
+  <qresource prefix="/plugins/weibullanalyse" > 
+    <file>icon.png</file> 
+  </qresource> 
+</RCC> 
+
