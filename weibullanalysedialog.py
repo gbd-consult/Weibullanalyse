@@ -281,10 +281,9 @@ class ValueWidget(QWidget, Ui_ValueWidgetBase):
 
     # Wert an Mausposition QGIS >= 2.0
     def sampleRaster20(self, layer, x, y):
-        success, data = layer.dataProvider().identify(QgsPoint(x,y))
-        for band, value in data.items():
-            return value
-
+        ident = layer.dataProvider().identify(QgsPoint(x,y), QgsRaster.IdentifyFormatValue ).results()
+        return ident[1]
+            
     # Wert an Mausposition QGIS <= 1.8 
     def sampleRaster18(self, layer, x, y):
         success, data = layer.identify(QgsPoint(x,y))
@@ -494,15 +493,26 @@ class ValueWidget(QWidget, Ui_ValueWidgetBase):
         vpoly.commitChanges()
         stats = QgsZonalStatistics(vpoly, self.getRasterLayerByName( self.InRastZ.currentText() ).source())
         stats.calculateStatistics(None)
-        allAttrs = provider.attributeIndexes()
-        provider.select(allAttrs)
-        provider.nextFeature(feature)
-        attrs = feature.attributeMap()
-        for (k, attr) in attrs.iteritems():
-            # 0 = Pixelanzahl, 1 = Summe, 2 = Mittelwert 
-            if k == 2:
-                return float(attr.toString())
+        allAttrs = provider.attributeIndexes()       
+        for feature in vpoly.getFeatures():
+            for attr in feature.attributes():
+                return float(attr)
+        
+#        provider.select(allAttrs)
+#        provider.nextFeature(feature)
+#        attrs = feature.attributeMap()
+#        for (k, attr) in attrs.iteritems():
+#            # 0 = Pixelanzahl, 1 = Summe, 2 = Mittelwert 
+#            if k == 2:
+#                return float(attr.toString())
+#    
 
+#
+#for feature in lnk_shp.getFeatures():
+#    for attr in feature.attributes():
+#      attr_list.append(attr.toString())
+#      
+      
     # Gebe Rasterwerte als Weibullkurve aus (value tool Plugin)
     def plot(self):
     
@@ -576,8 +586,10 @@ class ValueWidget(QWidget, Ui_ValueWidgetBase):
         # Weibullparameter K
         k = float(self.sampleRaster(self.InRastK.currentText(), self.xCoord, self.yCoord))/1000
         # mittlere Rauhigkeit (Mittelwerte auf Basis des angegebenen Radius)
-        z0 = self.meanBuffer()
-
+        #z0 = self.meanBuffer()
+        z0 = 12
+        QMessageBox.information(None, "Info K:", str(self.meanBuffer())) 
+        
         #Haeufigkeit aus der Weibull-Dichtefunktion durch Integration
         y = lambda x: k/c*(x/c)**(k-1)*numpy.exp(-(x/c)**k)
         rh=integrate.romberg(y,0.,1.0)
