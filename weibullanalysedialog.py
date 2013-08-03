@@ -587,8 +587,8 @@ class ValueWidget(QWidget, Ui_ValueWidgetBase):
         k = float(self.sampleRaster(self.InRastK.currentText(), self.xCoord, self.yCoord))/1000
         # mittlere Rauhigkeit (Mittelwerte auf Basis des angegebenen Radius)
         #z0 = self.meanBuffer()
-        z0 = 12
-        QMessageBox.information(None, "Info K:", str(self.meanBuffer())) 
+        z0 = self.meanBuffer()
+        #QMessageBox.information(None, "Info K:", str(self.meanBuffer())) 
         
         #Haeufigkeit aus der Weibull-Dichtefunktion durch Integration
         y = lambda x: k/c*(x/c)**(k-1)*numpy.exp(-(x/c)**k)
@@ -605,7 +605,7 @@ class ValueWidget(QWidget, Ui_ValueWidgetBase):
         
         self.standortname = self.dataName.text()  
       
-        if self.dataName.text().isEmpty():
+        if self.dataName.text() == '':
             QMessageBox.warning( self, self.tr( "Weibullanalyse: Fehler" ),
                            self.tr( "Bitte Standortnamen eintragen" ) )
         else:
