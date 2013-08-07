@@ -498,6 +498,17 @@ class ValueWidget(QWidget, Ui_ValueWidgetBase):
             for attr in feature.attributes():
                 return float(attr)
         
+#    def meanBuffer(self):
+#        # leeren Memorylayer erzeugen für den Puffer z0 um die Mousepoition
+#        vpoly = QgsVectorLayer("Polygon", "pointbuffer", "memory")
+#        feature = QgsFeature()
+#        feature.setGeometry(QgsGeometry.fromPoint(QgsPoint(self.xCoord, self.yCoord)).buffer(self.bufferz0.value(),5))
+#        provider = vpoly.dataProvider()
+#        provider.addFeatures( [feature] )
+#        vpoly.commitChanges()
+#        stats = QgsZonalStatistics(vpoly, self.getRasterLayerByName( self.InRastZ.currentText() ).source())
+#        stats.calculateStatistics(None)
+#        allAttrs = provider.attributeIndexes()
 #        provider.select(allAttrs)
 #        provider.nextFeature(feature)
 #        attrs = feature.attributeMap()
@@ -505,8 +516,6 @@ class ValueWidget(QWidget, Ui_ValueWidgetBase):
 #            # 0 = Pixelanzahl, 1 = Summe, 2 = Mittelwert 
 #            if k == 2:
 #                return float(attr.toString())
-#    
-
 #
 #for feature in lnk_shp.getFeatures():
 #    for attr in feature.attributes():
