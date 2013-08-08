@@ -495,33 +495,9 @@ class ValueWidget(QWidget, Ui_ValueWidgetBase):
         stats.calculateStatistics(None)
         allAttrs = provider.attributeIndexes()       
         for feature in vpoly.getFeatures():
-            for attr in feature.attributes():
-                return attr
-                        
-#    def meanBuffer(self):
-#        # leeren Memorylayer erzeugen für den Puffer z0 um die Mousepoition
-#        vpoly = QgsVectorLayer("Polygon", "pointbuffer", "memory")
-#        feature = QgsFeature()
-#        feature.setGeometry(QgsGeometry.fromPoint(QgsPoint(self.xCoord, self.yCoord)).buffer(self.bufferz0.value(),5))
-#        provider = vpoly.dataProvider()
-#        provider.addFeatures( [feature] )
-#        vpoly.commitChanges()
-#        stats = QgsZonalStatistics(vpoly, self.getRasterLayerByName( self.InRastZ.currentText() ).source())
-#        stats.calculateStatistics(None)
-#        allAttrs = provider.attributeIndexes()
-#        provider.select(allAttrs)
-#        provider.nextFeature(feature)
-#        attrs = feature.attributeMap()
-#        for (k, attr) in attrs.iteritems():
-#            # 0 = Pixelanzahl, 1 = Summe, 2 = Mittelwert 
-#            if k == 2:
-#                return float(attr.toString())
-#
-#for feature in lnk_shp.getFeatures():
-#    for attr in feature.attributes():
-#      attr_list.append(attr.toString())
-#      
-      
+            mean_value = feature.attributes()[2]
+            return mean_value
+
     # Gebe Rasterwerte als Weibullkurve aus (value tool Plugin)
     def plot(self):
     
@@ -537,7 +513,6 @@ class ValueWidget(QWidget, Ui_ValueWidgetBase):
             k = float(self.sampleRaster(self.InRastK.currentText(), self.xCoord, self.yCoord))/1000
             # mittlere Rauhigkeit (Mittelwerte auf Basis des angegebenen Radius)
             z0 = self.meanBuffer()
-            #QMessageBox.information(None, "Info Z0:", str(self.meanBuffer())) 
         except ValueError:
             QMessageBox.warning( self, self.tr( "Weibullauswertung: Fehler" ),
             self.tr( "Mindestens ein Layer ausserhalb des Abfragebereichs! Passen Layer KBS zueinander?" ) )       
@@ -596,9 +571,7 @@ class ValueWidget(QWidget, Ui_ValueWidgetBase):
         # Weibullparameter K
         k = float(self.sampleRaster(self.InRastK.currentText(), self.xCoord, self.yCoord))/1000
         # mittlere Rauhigkeit (Mittelwerte auf Basis des angegebenen Radius)
-        #z0 = self.meanBuffer()
         z0 = self.meanBuffer()
-        #QMessageBox.information(None, "Info Z0:", str(self.meanBuffer())) 
         
         #Haeufigkeit aus der Weibull-Dichtefunktion durch Integration
         y = lambda x: k/c*(x/c)**(k-1)*numpy.exp(-(x/c)**k)
@@ -650,6 +623,5 @@ class ValueWidget(QWidget, Ui_ValueWidgetBase):
         plt.savefig(self.fileName, dpi=300, facecolor='0.9', edgecolor='w',
         orientation='portrait', papertype=None, format='png',
         transparent=False, bbox_inches=None, pad_inches=0.1)
-        
-        #plt.show()
+
 
