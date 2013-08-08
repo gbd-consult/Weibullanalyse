@@ -496,8 +496,8 @@ class ValueWidget(QWidget, Ui_ValueWidgetBase):
         allAttrs = provider.attributeIndexes()       
         for feature in vpoly.getFeatures():
             for attr in feature.attributes():
-                return float(attr)
-        
+                return attr
+                
 #        provider.select(allAttrs)
 #        provider.nextFeature(feature)
 #        attrs = feature.attributeMap()
@@ -528,6 +528,7 @@ class ValueWidget(QWidget, Ui_ValueWidgetBase):
             k = float(self.sampleRaster(self.InRastK.currentText(), self.xCoord, self.yCoord))/1000
             # mittlere Rauhigkeit (Mittelwerte auf Basis des angegebenen Radius)
             z0 = self.meanBuffer()
+            #QMessageBox.information(None, "Info Z0:", str(self.meanBuffer())) 
         except ValueError:
             QMessageBox.warning( self, self.tr( "Weibullauswertung: Fehler" ),
             self.tr( "Mindestens ein Layer ausserhalb des Abfragebereichs! Passen Layer KBS zueinander?" ) )       
@@ -588,7 +589,7 @@ class ValueWidget(QWidget, Ui_ValueWidgetBase):
         # mittlere Rauhigkeit (Mittelwerte auf Basis des angegebenen Radius)
         #z0 = self.meanBuffer()
         z0 = self.meanBuffer()
-        #QMessageBox.information(None, "Info K:", str(self.meanBuffer())) 
+        #QMessageBox.information(None, "Info Z0:", str(self.meanBuffer())) 
         
         #Haeufigkeit aus der Weibull-Dichtefunktion durch Integration
         y = lambda x: k/c*(x/c)**(k-1)*numpy.exp(-(x/c)**k)
