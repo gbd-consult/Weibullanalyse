@@ -196,7 +196,7 @@
             <string>Name des Standortes angeben</string>
            </property>
            <property name="text">
-            <string/>
+            <string>Standort</string>
            </property>
            <property name="placeholderText">
             <string/>
