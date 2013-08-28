@@ -6,8 +6,8 @@ Plugin für die Bewertung von Windenergiestandorten
 Plugin ausprobieren
 -------------------
 
-    git clone git@github.com:dassau/weibullanalyse.git 
-    cd weibullanalyse
+    git clone git@github.com:dassau/Weibullanalyse.git 
+    cd Weibullanalyse
     make clean
     make 
     make dclean

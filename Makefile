@@ -29,7 +29,7 @@ TRANSLATIONS =
 
 # global
 
-PLUGINNAME = weibullanalyse
+PLUGINNAME = Weibullanalyse
 
 PY_FILES = weibullanalyse.py weibullanalysedialog.py __init__.py metadata.txt
 

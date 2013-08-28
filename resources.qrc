@@ -1,5 +1,5 @@
 <RCC> 
-  <qresource prefix="/plugins/weibullanalyse" > 
+  <qresource prefix="/plugins/Weibullanalyse" > 
     <file>icon.png</file> 
   </qresource> 
 </RCC> 
