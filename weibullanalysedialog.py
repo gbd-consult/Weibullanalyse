@@ -484,8 +484,8 @@ class ValueWidget(QWidget, Ui_ValueWidgetBase):
             irow+=1
 
     def meanBuffer(self):
-        # leeren Memorylayer erzeugen für den Puffer z0 um die Mousepoition
-        vpoly = QgsVectorLayer("Polygon", "pointbuffer", "memory")
+        # leeren Memorylayer erzeugen als UTM32N KBS für den Puffer z0 um die Mousepoition
+        vpoly = QgsVectorLayer("Polygon?crs=epsg:32632",  "pointbuffer", "memory")
         feature = QgsFeature()
         feature.setGeometry(QgsGeometry.fromPoint(QgsPoint(self.xCoord, self.yCoord)).buffer(self.bufferz0.value(),5))
         provider = vpoly.dataProvider()
