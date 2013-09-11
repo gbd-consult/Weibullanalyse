@@ -296,19 +296,14 @@ class ValueWidget(QWidget, Ui_ValueWidgetBase):
         for i in range(self.canvas.layerCount()):
             layer = self.canvas.layer(i)
             if (layer!=None and layer.isValid() and layer.type()==QgsMapLayer.RasterLayer):
-                if QGis.QGIS_VERSION_INT >= 10900: # for QGIS >= 1.9
-                    if not layer.dataProvider():
-                        continue
+                if not layer.dataProvider():
+                    continue
 
-                    if not layer.dataProvider().capabilities() & QgsRasterDataProvider.IdentifyValue:
-                        continue
+                if not layer.dataProvider().capabilities() & QgsRasterDataProvider.IdentifyValue:
+                    continue
 
-                    nrow+=layer.bandCount()
-                    rasterlayers.append(layer)
-
-                else: # < 1.9
-                    nrow+=layer.bandCount()
-                    rasterlayers.append(layer)
+                nrow+=layer.bandCount()
+                rasterlayers.append(layer)
                  
         # create the row if necessary
         self.tableWidget.setRowCount(nrow)
@@ -340,33 +335,32 @@ class ValueWidget(QWidget, Ui_ValueWidgetBase):
                     # ignore transformation errors
                     continue
 
-            if QGis.QGIS_VERSION_INT >= 10900: # for QGIS >= 1.9
-                if not layer.dataProvider():
+            if not layer.dataProvider():
+                continue
+
+            ident = None
+            if position is not None:
+                canvas = self.iface.mapCanvas()
+
+            # first test if point is within map layer extent 
+            # maintain same behaviour as in 1.8 and print out of extent
+                if not layer.dataProvider().extent().contains( pos ):
+                    ident = dict()
+                    for iband in range(1,layer.bandCount()+1):
+                        ident[iband] = str(self.tr('out of extent'))
+                # we can only use context if layer is not projected
+                elif canvas.hasCrsTransformEnabled() and layer.dataProvider().crs() != canvas.mapRenderer().destinationCrs():
+                    ident = layer.dataProvider().identify(pos, QgsRaster.IdentifyFormatValue ).results()
+                else:
+                    extent = canvas.extent()
+                    width = round(extent.width() / canvas.mapUnitsPerPixel());
+                    height = round(extent.height() / canvas.mapUnitsPerPixel());
+                    
+                    extent = canvas.mapRenderer().mapToLayerCoordinates( layer, extent );
+
+                    ident = layer.dataProvider().identify(pos, QgsRaster.IdentifyFormatValue, canvas.extent(), width, height ).results()
+                if not len( ident ) > 0:
                     continue
-
-                ident = None
-                if position is not None:
-                    canvas = self.iface.mapCanvas()
-
-                # first test if point is within map layer extent 
-                # maintain same behaviour as in 1.8 and print out of extent
-                    if not layer.dataProvider().extent().contains( pos ):
-                        ident = dict()
-                        for iband in range(1,layer.bandCount()+1):
-                            ident[iband] = str(self.tr('out of extent'))
-                    # we can only use context if layer is not projected
-                    elif canvas.hasCrsTransformEnabled() and layer.dataProvider().crs() != canvas.mapRenderer().destinationCrs():
-                        ident = layer.dataProvider().identify(pos, QgsRaster.IdentifyFormatValue ).results()
-                    else:
-                        extent = canvas.extent()
-                        width = round(extent.width() / canvas.mapUnitsPerPixel());
-                        height = round(extent.height() / canvas.mapUnitsPerPixel());
-
-                        extent = canvas.mapRenderer().mapToLayerCoordinates( layer, extent );
-
-                        ident = layer.dataProvider().identify(pos, QgsRaster.IdentifyFormatValue, canvas.extent(), width, height ).results()
-                    if not len( ident ) > 0:
-                        continue
 
                 # if given no position, set values to 0
                 if position is None and ident is not None and ident.iterkeys() is not None:
@@ -393,36 +387,7 @@ class ValueWidget(QWidget, Ui_ValueWidgetBase):
                         if stats:
                             self.ymin=min(self.ymin,stats.minimumValue)
                             self.ymax=max(self.ymax,stats.maximumValue)
-
-            else: # QGIS < 1.9
-                isok,ident = layer.identify(pos)
-                if not isok:
-                    continue
-
-                # if given no position, set values to 0
-                if position is None:
-                    for key in ident.iterkeys():
-                        ident[key] = 0
-                else:
-                    for iband in range(1,layer.bandCount()+1): # loop over the bands
-                        bandvalue=ident[layer.bandName(iband)]
-                        layernamewithband=layername
-                        if len(ident)>1:
-                            layernamewithband+=' '+layer.bandName(iband)
-
-                        self.values.append((layernamewithband,bandvalue))
-
-                        if needextremum:
-                            has_stats=layer.hasStatistics(i)
-                            if has_stats:
-                                cstr=layer.bandStatistics(iband)
-                            if has_stats:
-                                self.ymin=min(self.ymin,cstr.minimumValue)
-                                self.ymax=max(self.ymax,cstr.maximumValue)
-                            else:
-                                self.ymin=min(self.ymin,layer.minimumValue(i))
-                                self.ymax=max(self.ymax,layer.maximumValue(i))
-
+                            
         self.showValues()
     
     # Ausgabe der Rasterwerte als Tabelle oder Weibullkurve (from value tool)
