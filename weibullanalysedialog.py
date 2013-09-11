@@ -31,11 +31,11 @@ from PyQt4 import QtCore, QtGui
 from PyQt4.QtCore import *
 from PyQt4.QtGui import *
 from qgis.core import *
+from qgis.gui import *
+from ui_weibullanalyse import Ui_ValueWidgetBase
 
 # für die Berechung des Mittelwertes
 from qgis.analysis import QgsZonalStatistics
-
-from ui_weibullanalyse import Ui_ValueWidgetBase
 
 # Testen, ob matplotlib >= 1.0
 hasmpl=True
@@ -242,28 +242,18 @@ class ValueWidget(QWidget, Ui_ValueWidgetBase):
     def changePlot(self):
         self.changePage(self.cbxActive.checkState())
 
-    # (from value tool)
+    # Steuerung von Start/Stop (adapted from value tool)
     def changeActive(self,state):
-        if (state==Qt.Checked):
+        if self.cbxActive.isChecked():
             QObject.connect(self.canvas, SIGNAL( "layersChanged ()" ), self.invalidatePlot )
-            if int(QGis.QGIS_VERSION[2]) > 2: # for QGIS >= 1.3
-                QObject.connect(self.canvas, SIGNAL("xyCoordinates(const QgsPoint &)"), self.printValue)
-                QObject.connect(self.canvas, SIGNAL("xyCoordinates(const QgsPoint &)"), self.listen_xCoordinates)
-                QObject.connect(self.canvas, SIGNAL("xyCoordinates(const QgsPoint &)"), self.listen_yCoordinates)          
-            else:
-                QObject.connect(self.canvas, SIGNAL("xyCoordinates(QgsPoint &)"), self.printValue)
-                QObject.disconnect(self.canvas, SIGNAL("xyCoordinates(QgsPoint &)"), self.listen_xCoordinates)
-                QObject.disconnect(self.canvas, SIGNAL("xyCoordinates(QgsPoint &)"), self.listen_yCoordinates)            
+            QObject.connect(self.canvas, SIGNAL("xyCoordinates(const QgsPoint &)"), self.printValue)
+            QObject.connect(self.canvas, SIGNAL("xyCoordinates(const QgsPoint &)"), self.listen_xCoordinates)
+            QObject.connect(self.canvas, SIGNAL("xyCoordinates(const QgsPoint &)"), self.listen_yCoordinates)             
         else:
             QObject.disconnect(self.canvas, SIGNAL( "layersChanged ()" ), self.invalidatePlot )
-            if int(QGis.QGIS_VERSION[2]) > 2: # for QGIS >= 1.3
-                QObject.disconnect(self.canvas, SIGNAL("xyCoordinates(const QgsPoint &)"), self.printValue)
-                QObject.disconnect(self.canvas, SIGNAL("xyCoordinates(const QgsPoint &)"), self.listen_xCoordinates)
-                QObject.disconnect(self.canvas, SIGNAL("xyCoordinates(const QgsPoint &)"), self.listen_yCoordinates)          
-            else:
-                QObject.disconnect(self.canvas, SIGNAL("xyCoordinates(QgsPoint &)"), self.printValue)
-                QObject.disconnect(self.canvas, SIGNAL("xyCoordinates(QgsPoint &)"), self.listen_xCoordinates)
-                QObject.disconnect(self.canvas, SIGNAL("xyCoordinates(QgsPoint &)"), self.listen_yCoordinates)
+            QObject.disconnect(self.canvas, SIGNAL("xyCoordinates(const QgsPoint &)"), self.printValue)
+            QObject.disconnect(self.canvas, SIGNAL("xyCoordinates(const QgsPoint &)"), self.listen_xCoordinates)
+            QObject.disconnect(self.canvas, SIGNAL("xyCoordinates(const QgsPoint &)"), self.listen_yCoordinates)          
                 
     # Gebe X-Koordinate aus und überschreibe vorherige (append ergänzt)
     def listen_xCoordinates(self, point):
@@ -279,27 +269,17 @@ class ValueWidget(QWidget, Ui_ValueWidgetBase):
             self.outputYEdit.setText("%d" % (y))
             self.yCoord = y
 
-    # Wert an Mausposition QGIS >= 2.0
+    # Wert an Mausposition
     def sampleRaster20(self, layer, x, y):
         ident = layer.dataProvider().identify(QgsPoint(x,y), QgsRaster.IdentifyFormatValue ).results()
         return ident[1]
             
-    # Wert an Mausposition QGIS <= 1.8 
-    def sampleRaster18(self, layer, x, y):
-        success, data = layer.identify(QgsPoint(x,y))
-        for band, value in data.items():
-            return value
-        
     # Frage Wert für die Rasterlayer an Mouseposition ab
     def sampleRaster(self, raster_name, x, y):
         layer = self.getRasterLayerByName(raster_name)
-        # QGIS >=1.9
-        if QGis.QGIS_VERSION_INT >= 10900:
-            return self.sampleRaster20(layer, x, y)
-        else:
-            return self.sampleRaster18(layer, x, y)
+        return self.sampleRaster20(layer, x, y)
 
-    # Zeige Rasterwerte als Tabelle (vom valuetool plugin)
+    # Zeige Rasterwerte als Tabelle (angepasst vom valuetool plugin)
     def printValue(self, position):
         if self.canvas.layerCount() == 0:
             self.values=[]         
@@ -498,7 +478,7 @@ class ValueWidget(QWidget, Ui_ValueWidgetBase):
             mean_value = feature.attributes()[2]
             return mean_value
 
-    # Gebe Rasterwerte als Weibullkurve aus (value tool Plugin)
+    # Gebe Rasterwerte als Weibullkurve aus 
     def plot(self):
     
         # Variable initialisieren
