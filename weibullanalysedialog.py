@@ -459,9 +459,14 @@ class ValueWidget(QWidget, Ui_ValueWidgetBase):
             # mittlere Rauhigkeit (Mittelwerte auf Basis des angegebenen Radius)
             z0 = self.meanBuffer()
         except ValueError:
-            QMessageBox.warning( self, self.tr( "Weibullauswertung: Fehler" ),
-            self.tr( "Mindestens ein Layer ausserhalb des Abfragebereichs! Passen Layer KBS zueinander?" ) )       
-        
+            self.iface.messageBar().pushMessage("Weibullauswertung: Fehler", 
+            "Mindestens ein Layer ausserhalb des Abfragebereichs! Passen Layer KBS zueinander?",  
+            level=QgsMessageBar.CRITICAL, duration=2)
+        except TypeError:
+            self.iface.messageBar().pushMessage("Weibullauswertung: Fehler", 
+            "Mindestens ein Layer ausserhalb des Abfragebereichs! Passen Layer KBS zueinander?",  
+            level=QgsMessageBar.CRITICAL)
+            
         #Haeufigkeit aus der Weibull-Dichtefunktion durch Integration
         if c > 0:
             try:
@@ -488,8 +493,8 @@ class ValueWidget(QWidget, Ui_ValueWidgetBase):
                 self.mplFig.canvas.draw()
                 
             except ZeroDivisionError:
-                QMessageBox.warning( self, self.tr( "Weibullauswertung: Fehler" ),
-                self.tr( "Division mit 0 nicht erlaubt. Falsche Layerzuordnung?" ) )
+                self.iface.messageBar().pushMessage("Weibullauswertung: Fehler", 
+                "Division mit 0 nicht erlaubt. Falsche Layerzuordnung?",  level=QgsMessageBar.CRITICAL)
       
     # taken from valuetool plugin
     def invalidatePlot(self,replot=True):
