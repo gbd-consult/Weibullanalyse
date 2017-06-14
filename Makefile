@@ -1,13 +1,14 @@
+# -*- coding: utf-8 -*-
+#
+#"""
 #/***************************************************************************
-# WeibullAnalyse
-# 
-# Weibullauswertung für Windenergiestandorte
-#                             -------------------
+# QGIS Plugin zur Erstellung einer Weibull-Analyse für Windenergiestandorte
+# -------------------
 #        begin                : 2013-01-08
-#        copyright            : (C) 2013 by dassau@gbd-consult.de
-#        email                : dassau@gbd-consult.de
+#        copyright            : (C) 2013 by Geoinformatikbüro Dassau GmbH
+#        email                : info@gbd-consult.de
 # ***************************************************************************/
-# 
+#
 #/***************************************************************************
 # *                                                                         *
 # *   This program is free software; you can redistribute it and/or modify  *
@@ -16,6 +17,7 @@
 # *   (at your option) any later version.                                   *
 # *                                                                         *
 # ***************************************************************************/
+#"""
 
 # CONFIGURATION
 PLUGIN_UPLOAD = $(CURDIR)/plugin_upload.py
