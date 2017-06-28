@@ -41,7 +41,7 @@ class ValueTool:
         self.valuedockwidget=QDockWidget("Weibullanalyse Tool" , self.iface.mainWindow() )
         self.valuedockwidget.setObjectName("Weibullanalyse Tool")
         self.valuedockwidget.setWidget(self.valuewidget)
-        QObject.connect(self.valuedockwidget, SIGNAL('visibilityChanged ( bool )'), self.showHideDockWidget)
+        QObject.connect(self.valuedockwidget, SIGNAL('visibilityChanged ( bool )'), self.valuewidget.changeActive)
     
         # add the dockwidget to iface
         self.iface.addDockWidget(Qt.LeftDockWidgetArea,self.valuedockwidget)
@@ -53,10 +53,3 @@ class ValueTool:
         # remove the dockwidget from iface
         self.iface.removeDockWidget(self.valuedockwidget)
         # remove the plugin menu item and icon
-
-    def showHideDockWidget( self ):
-        if self.valuedockwidget.isVisible() and self.valuewidget.cbxActive.isChecked():
-            state = Qt.Checked
-        else:
-            state = Qt.Unchecked
-        self.valuewidget.changeActive( state )

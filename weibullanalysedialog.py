@@ -94,6 +94,9 @@ class ValueWidget(QWidget, Ui_ValueWidgetBase):
         QObject.connect(self.canvas, SIGNAL( "keyPressed( QKeyEvent * )" ), self.printWeibull )
         QObject.connect(self.buttonSaveAs, SIGNAL("clicked()"), self.savePNG)
 
+        # WeibullTool MapTool
+        self.weibullTool = QgsMapToolEmitPoint(self.canvas)
+
         # connect layer list in plugin combobox 
         QObject.connect(QgsMapLayerRegistry.instance(), SIGNAL("layerWasAdded(QgsMapLayer *)"), self.add_layer)
         QObject.connect(QgsMapLayerRegistry.instance(), SIGNAL("layerWillBeRemoved(QString)"), self.remove_layer)
@@ -182,7 +185,7 @@ class ValueWidget(QWidget, Ui_ValueWidgetBase):
  
     # Deaktiviere wieder die Anzeige Start/Stop Auswahl, wenn Shift-A gedrückt wird
     def disconnect(self):
-        self.changeActive(False)
+        self.changeActive()
         QObject.disconnect(self.canvas, SIGNAL( "keyPressed( QKeyEvent * )" ), self.pauseAnzeige )
         QObject.disconnect(self.canvas, SIGNAL( "keyPressed( QKeyEvent * )" ), self.pauseGraph )
         
@@ -241,18 +244,17 @@ class ValueWidget(QWidget, Ui_ValueWidgetBase):
     def changePlot(self):
         self.changePage(self.cbxActive.checkState())
 
-    # Steuerung von Start/Stop (adapted from value tool)
-    def changeActive(self,state):
+    # toggle the weibullTool
+    def changeActive(self):
         if self.cbxActive.isChecked():
             QObject.connect(self.canvas, SIGNAL( "layersChanged ()" ), self.invalidatePlot )
-            QObject.connect(self.canvas, SIGNAL("xyCoordinates(const QgsPoint &)"), self.printValue)
-            QObject.connect(self.canvas, SIGNAL("xyCoordinates(const QgsPoint &)"), self.listen_xCoordinates)
-            QObject.connect(self.canvas, SIGNAL("xyCoordinates(const QgsPoint &)"), self.listen_yCoordinates)             
+            self.canvas.setMapTool(self.weibullTool)
+            self.weibullTool.canvasClicked.connect(self.listen_xCoordinates)
+            self.weibullTool.canvasClicked.connect(self.listen_yCoordinates)
+            self.weibullTool.canvasClicked.connect(self.printValue)
         else:
             QObject.disconnect(self.canvas, SIGNAL( "layersChanged ()" ), self.invalidatePlot )
-            QObject.disconnect(self.canvas, SIGNAL("xyCoordinates(const QgsPoint &)"), self.printValue)
-            QObject.disconnect(self.canvas, SIGNAL("xyCoordinates(const QgsPoint &)"), self.listen_xCoordinates)
-            QObject.disconnect(self.canvas, SIGNAL("xyCoordinates(const QgsPoint &)"), self.listen_yCoordinates)          
+            self.canvas.unsetMapTool(self.weibullTool)
                 
     # Gebe X-Koordinate aus und überschreibe vorherige (append ergänzt)
     def listen_xCoordinates(self, point):
