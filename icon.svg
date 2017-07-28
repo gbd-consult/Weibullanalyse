@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   height="48"
+   viewBox="0 0 48 48"
+   width="48"
+   id="svg4565"
+   version="1.1"
+   inkscape:version="0.91 r13725"
+   sodipodi:docname="Weibullanalyse_Ende.svg"
+   inkscape:export-filename="/arbeit/github/Weibullanalyse/icon.png"
+   inkscape:export-xdpi="52"
+   inkscape:export-ydpi="52">
+  <metadata
+     id="metadata4595">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <defs
+     id="defs4593">
+    <linearGradient
+       id="linearGradient3645">
+      <stop
+         style="stop-color:#edd400;stop-opacity:1;"
+         offset="0"
+         id="stop3647" />
+      <stop
+         style="stop-color:#fff17a;stop-opacity:1;"
+         offset="1"
+         id="stop3649" />
+    </linearGradient>
+  </defs>
+  <sodipodi:namedview
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1"
+     objecttolerance="10"
+     gridtolerance="10"
+     guidetolerance="10"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:window-width="1432"
+     inkscape:window-height="837"
+     id="namedview4591"
+     showgrid="false"
+     inkscape:zoom="9.8333333"
+     inkscape:cx="48.059963"
+     inkscape:cy="21.672036"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="0"
+     inkscape:current-layer="svg4565" />
+  <g
+     id="g4143"
+     inkscape:export-filename="/arbeit/github/Weibullanalyse/icon.png"
+     inkscape:export-xdpi="52"
+     inkscape:export-ydpi="52">
+    <path
+       sodipodi:nodetypes="cccsccc"
+       inkscape:connector-curvature="0"
+       id="path3338"
+       d="m 47.365919,47.903703 c 0,0 -17.665083,-6.42995 -25.650672,-28.934787 0,0 -7.052744,-18.26893989 -13.5801149,-18.43034842 C 7.7405568,0.56371233 7.5697669,0.46600179 7.2181484,0.51857994 0.68916754,1.4951788 1.3446375,10.547009 0.97934,15.132149 0.27159059,23.937653 0.45492139,36.676295 0.45492139,47.903692 Z"
+       style="fill:#0065ca;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:0.4079217;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+    <path
+       inkscape:connector-curvature="0"
+       id="path4140"
+       d="M 11.638246,2.1437409 12.151579,47.793706"
+       style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:0.4079217;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+    <path
+       inkscape:connector-curvature="0"
+       id="path4430"
+       d="m 34.283638,13.318995 0.773297,-9.5514445 c 0,0 0.649577,-1.6382733 1.268222,0 l 0.866098,9.2423345 c 0,0 0.09275,1.421898 -0.742365,1.298255 l -1.391955,-0.03089 c 0,0 -0.773297,0 -0.773297,-0.958237 z"
+       style="fill:#000000;fill-opacity:0.99596339;fill-rule:evenodd;stroke:#000000;stroke-width:0.35049728;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+    <path
+       inkscape:connector-curvature="0"
+       id="path4430-7"
+       d="m 39.37254,17.254564 7.890844,5.444958 c 0,0 1.094973,1.3813 -0.634107,1.097556 l -8.442675,-3.871622 c 0,0 -1.278644,-0.630635 -0.753912,-1.291597 l 0.722775,-1.18917 c 0,0 0.386656,-0.669239 1.217079,-0.190142 z"
+       style="fill:#000000;fill-opacity:0.99596339;fill-rule:evenodd;stroke:#000000;stroke-width:0.35049728;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+    <path
+       inkscape:connector-curvature="0"
+       id="path4430-5"
+       d="m 34.146924,19.732949 -8.776513,3.860863 c 0,0 -1.751109,0.207744 -0.602913,-1.114977 l 7.725023,-5.155215 c 0,0 1.207685,-0.757554 1.495873,0.03551 l 0.634505,1.238463 c 0,0 0.367618,0.679852 -0.475992,1.135398 z"
+       style="fill:#000000;fill-opacity:0.99596339;fill-rule:evenodd;stroke:#000000;stroke-width:0.35049728;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+    <ellipse
+       ry="1.3679945"
+       rx="1.2377038"
+       cy="16.729441"
+       cx="35.91571"
+       id="path4487"
+       style="opacity:1;fill:#000000;fill-opacity:0.99596339;stroke:#000000;stroke-width:0.35049728;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+    <path
+       inkscape:connector-curvature="0"
+       id="path4233"
+       d="M 0.74328037,34.976858 C 0.79654771,22.757011 0.83074274,21.227986 1.1729172,15.764782 1.2586594,14.395825 1.3784217,12.412391 1.4390553,11.357154 1.6428419,7.8105937 2.0256351,5.9121529 2.8997591,4.1128677 4.0216102,1.8036643 5.8384204,0.66188212 8.1604735,0.80675127 8.9155134,0.8538519 9.1462905,0.91825481 9.8758356,1.2854063 10.339459,1.5187322 10.87004,1.8385572 11.054905,1.9961299 l 0.336118,0.2864945 0.20339,18.4601846 c 0.111865,10.153101 0.233644,20.361949 0.27062,22.686322 l 0.06723,4.226141 -5.6221248,0 -5.62212432,0 0.0552679,-12.678414 z"
+       style="opacity:0.92699998;fill:#117ec0;fill-opacity:0.99604438;stroke:#000000;stroke-width:0.20741785;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+    <path
+       inkscape:connector-curvature="0"
+       id="path4235"
+       d="M 12.391904,46.073712 C 12.344262,44.816189 11.897176,5.1852973 11.908489,3.2225284 l 0.003,-0.5120206 0.322306,0.3046024 c 1.174437,1.1099316 3.371025,4.1765031 4.786821,6.6827006 1.468222,2.5990032 3.424153,6.7025292 4.399485,9.2300942 0.917111,2.376682 1.194228,3.058497 1.807383,4.446881 4.461423,10.102118 12.405293,18.807976 21.507878,23.570945 l 1.348213,0.705463 -16.815851,0.002 -16.815852,0.002 -0.05992,-1.581558 z"
+       style="opacity:0.92699998;fill:#117ec0;fill-opacity:0.99604438;stroke:#000000;stroke-width:0.20741785;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+  </g>
+</svg>

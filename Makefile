@@ -112,7 +112,8 @@ transclean:
 	rm -f i18n/*.qm
 
 clean:
-	rm $(UI_FILES) $(RESOURCE_FILES)
+	rm $(RESOURCE_FILES)
+	#rm $(UI_FILES) 
 
 # build documentation with sphinx
 doc: 
