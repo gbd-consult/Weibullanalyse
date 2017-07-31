@@ -11,7 +11,7 @@
 name=Weibullauswertung
 qgisMinimumVersion=2.0.0
 description=Weibullauswertung für Windenergiestandorte
-version=1,0
+version=1.1
 author=Geoinformatikbuero Dassau GmbH
 email=info@gbd-consult.de
 
