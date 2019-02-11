@@ -21,6 +21,6 @@
 
 def classFactory(iface):
     # load WeibullAnalyse class from file WeibullAnalyse
-    from weibullanalyse import ValueTool
+    from .weibullanalyse import ValueTool
     return ValueTool(iface)
 

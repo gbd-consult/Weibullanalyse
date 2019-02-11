@@ -5,3 +5,7 @@
 
 *.zip
 *.swp
+help/build
+.noseids
+.coverage
+*~

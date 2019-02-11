@@ -1,420 +1,869 @@
 <!DOCTYPE qgis PUBLIC 'http://mrcc.com/qgis.dtd' 'SYSTEM'>
-<qgis projectname="" version="2.2.0-Valmiera">
+<qgis projectname="" version="3.4.4-Madeira">
+  <homePath path=""/>
+  <title></title>
+  <autotransaction active="0"/>
+  <evaluateDefaultValues active="0"/>
+  <trust active="0"/>
+  <projectCrs>
+    <spatialrefsys>
+      <proj4>+proj=tmerc +lat_0=0 +lon_0=9 +k=1 +x_0=3500000 +y_0=0 +ellps=bessel +towgs84=598.1,73.7,418.2,0.202,0.045,-2.455,6.7 +units=m +no_defs</proj4>
+      <srsid>2647</srsid>
+      <srid>31467</srid>
+      <authid>EPSG:31467</authid>
+      <description>DHDN / 3-degree Gauss-Kruger zone 3</description>
+      <projectionacronym>tmerc</projectionacronym>
+      <ellipsoidacronym>bessel</ellipsoidacronym>
+      <geographicflag>false</geographicflag>
+    </spatialrefsys>
+  </projectCrs>
+  <layer-tree-group>
+    <customproperties/>
+    <layer-tree-layer checked="Qt::Checked" name="standort_test" id="standort_test20130331092958849" expanded="0" source="./standort_test.shp" providerKey="ogr">
+      <customproperties/>
+    </layer-tree-layer>
+    <layer-tree-layer checked="Qt::Checked" name="dwd_stationen_test" id="dwd_stationen_test20130331092958700" expanded="0" source="./dwd_stationen_test.shp" providerKey="ogr">
+      <customproperties/>
+    </layer-tree-layer>
+    <layer-tree-layer checked="Qt::Checked" name="wdat1km10_test" id="wdat1km10_test20130331092956274" expanded="0" source="./wdat1km10_test.tif" providerKey="gdal">
+      <customproperties/>
+    </layer-tree-layer>
+    <layer-tree-layer checked="Qt::Checked" name="kdat10km1_test" id="kdat10km1_test20130331092952534" expanded="0" source="./kdat10km1_test.tif" providerKey="gdal">
+      <customproperties/>
+    </layer-tree-layer>
+    <layer-tree-layer checked="Qt::Checked" name="corine2006_z0_test_gk3" id="corine2006_z0_test_gk320130423163031893" expanded="0" source="./corine2006_z0_test_gk3.tif" providerKey="gdal">
+      <customproperties/>
+    </layer-tree-layer>
+    <layer-tree-layer checked="Qt::Checked" name="cdat10km1_test" id="cdat10km1_test20130331092943187" expanded="0" source="./cdat10km1_test.tif" providerKey="gdal">
+      <customproperties/>
+    </layer-tree-layer>
+    <custom-order enabled="0">
+      <item>standort_test20130331092958849</item>
+      <item>dwd_stationen_test20130331092958700</item>
+      <item>wdat1km10_test20130331092956274</item>
+      <item>kdat10km1_test20130331092952534</item>
+      <item>corine2006_z0_test_gk320130423163031893</item>
+      <item>cdat10km1_test20130331092943187</item>
+    </custom-order>
+  </layer-tree-group>
+  <snapping-settings enabled="1" intersection-snapping="0" mode="3" tolerance="0" type="1" unit="2">
+    <individual-layer-settings>
+      <layer-setting enabled="0" units="1" id="dwd_stationen_test20130331092958700" tolerance="12" type="1"/>
+      <layer-setting enabled="0" units="1" id="standort_test20130331092958849" tolerance="12" type="1"/>
+    </individual-layer-settings>
+  </snapping-settings>
+  <relations/>
+  <mapcanvas name="theMapCanvas" annotationsVisible="1">
+    <units>meters</units>
+    <extent>
+      <xmin>3489401.9584568184800446</xmin>
+      <ymin>5424221.18003726564347744</ymin>
+      <xmax>3493189.33131157932803035</xmax>
+      <ymax>5427272.11928137764334679</ymax>
+    </extent>
+    <rotation>0</rotation>
+    <destinationsrs>
+      <spatialrefsys>
+        <proj4>+proj=tmerc +lat_0=0 +lon_0=9 +k=1 +x_0=3500000 +y_0=0 +ellps=bessel +towgs84=598.1,73.7,418.2,0.202,0.045,-2.455,6.7 +units=m +no_defs</proj4>
+        <srsid>2647</srsid>
+        <srid>31467</srid>
+        <authid>EPSG:31467</authid>
+        <description>DHDN / 3-degree Gauss-Kruger zone 3</description>
+        <projectionacronym>tmerc</projectionacronym>
+        <ellipsoidacronym>bessel</ellipsoidacronym>
+        <geographicflag>false</geographicflag>
+      </spatialrefsys>
+    </destinationsrs>
+    <rendermaptile>0</rendermaptile>
+  </mapcanvas>
+  <projectModels/>
+  <legend updateDrawingOrder="true">
+    <legendlayer checked="Qt::Checked" name="standort_test" open="false" drawingOrder="-1" showFeatureCount="0">
+      <filegroup hidden="false" open="false">
+        <legendlayerfile visible="1" layerid="standort_test20130331092958849" isInOverview="0"/>
+      </filegroup>
+    </legendlayer>
+    <legendlayer checked="Qt::Checked" name="dwd_stationen_test" open="false" drawingOrder="-1" showFeatureCount="0">
+      <filegroup hidden="false" open="false">
+        <legendlayerfile visible="1" layerid="dwd_stationen_test20130331092958700" isInOverview="0"/>
+      </filegroup>
+    </legendlayer>
+    <legendlayer checked="Qt::Checked" name="wdat1km10_test" open="false" drawingOrder="-1" showFeatureCount="0">
+      <filegroup hidden="false" open="false">
+        <legendlayerfile visible="1" layerid="wdat1km10_test20130331092956274" isInOverview="0"/>
+      </filegroup>
+    </legendlayer>
+    <legendlayer checked="Qt::Checked" name="kdat10km1_test" open="false" drawingOrder="-1" showFeatureCount="0">
+      <filegroup hidden="false" open="false">
+        <legendlayerfile visible="1" layerid="kdat10km1_test20130331092952534" isInOverview="0"/>
+      </filegroup>
+    </legendlayer>
+    <legendlayer checked="Qt::Checked" name="corine2006_z0_test_gk3" open="false" drawingOrder="-1" showFeatureCount="0">
+      <filegroup hidden="false" open="false">
+        <legendlayerfile visible="1" layerid="corine2006_z0_test_gk320130423163031893" isInOverview="0"/>
+      </filegroup>
+    </legendlayer>
+    <legendlayer checked="Qt::Checked" name="cdat10km1_test" open="false" drawingOrder="-1" showFeatureCount="0">
+      <filegroup hidden="false" open="false">
+        <legendlayerfile visible="1" layerid="cdat10km1_test20130331092943187" isInOverview="0"/>
+      </filegroup>
+    </legendlayer>
+  </legend>
+  <mapViewDocks/>
+  <mapViewDocks3D/>
+  <projectlayers>
+    <maplayer refreshOnNotifyMessage="" refreshOnNotifyEnabled="0" styleCategories="AllStyleCategories" autoRefreshEnabled="0" autoRefreshTime="0" maxScale="0" type="raster" minScale="1e+8" hasScaleBasedVisibilityFlag="0">
+      <extent>
+        <xmin>3468000</xmin>
+        <ymin>5381000</ymin>
+        <xmax>3547000</xmax>
+        <ymax>5442000</ymax>
+      </extent>
+      <id>cdat10km1_test20130331092943187</id>
+      <datasource>./cdat10km1_test.tif</datasource>
+      <keywordList>
+        <value></value>
+      </keywordList>
+      <layername>cdat10km1_test</layername>
+      <srs>
+        <spatialrefsys>
+          <proj4>+proj=tmerc +lat_0=0 +lon_0=9 +k=1 +x_0=3500000 +y_0=0 +ellps=bessel +towgs84=598.1,73.7,418.2,0.202,0.045,-2.455,6.7 +units=m +no_defs</proj4>
+          <srsid>2647</srsid>
+          <srid>31467</srid>
+          <authid>EPSG:31467</authid>
+          <description>DHDN / 3-degree Gauss-Kruger zone 3</description>
+          <projectionacronym>tmerc</projectionacronym>
+          <ellipsoidacronym>bessel</ellipsoidacronym>
+          <geographicflag>false</geographicflag>
+        </spatialrefsys>
+      </srs>
+      <resourceMetadata>
+        <identifier></identifier>
+        <parentidentifier></parentidentifier>
+        <language></language>
+        <type></type>
+        <title></title>
+        <abstract></abstract>
+        <links/>
+        <fees></fees>
+        <encoding></encoding>
+        <crs>
+          <spatialrefsys>
+            <proj4></proj4>
+            <srsid>0</srsid>
+            <srid>0</srid>
+            <authid></authid>
+            <description></description>
+            <projectionacronym></projectionacronym>
+            <ellipsoidacronym></ellipsoidacronym>
+            <geographicflag>true</geographicflag>
+          </spatialrefsys>
+        </crs>
+        <extent/>
+      </resourceMetadata>
+      <provider>gdal</provider>
+      <noData>
+        <noDataList useSrcNoData="1" bandNo="1"/>
+      </noData>
+      <map-layer-style-manager current="default">
+        <map-layer-style name="default"/>
+      </map-layer-style-manager>
+      <flags>
+        <Identifiable>1</Identifiable>
+        <Removable>1</Removable>
+        <Searchable>1</Searchable>
+      </flags>
+      <customproperties/>
+      <pipe>
+        <rasterrenderer alphaBand="-1" opacity="1" type="singlebandgray" gradient="BlackToWhite" grayBand="1">
+          <minMaxOrigin>
+            <limits>None</limits>
+            <extent>WholeRaster</extent>
+            <statAccuracy>Estimated</statAccuracy>
+            <cumulativeCutLower>0.02</cumulativeCutLower>
+            <cumulativeCutUpper>0.98</cumulativeCutUpper>
+            <stdDevFactor>2</stdDevFactor>
+          </minMaxOrigin>
+          <contrastEnhancement>
+            <minValue>15</minValue>
+            <maxValue>53</maxValue>
+            <algorithm>StretchAndClipToMinimumMaximum</algorithm>
+          </contrastEnhancement>
+        </rasterrenderer>
+        <brightnesscontrast contrast="0" brightness="0"/>
+        <huesaturation colorizeRed="255" colorizeOn="0" saturation="0" grayscaleMode="0" colorizeStrength="100" colorizeGreen="128" colorizeBlue="128"/>
+        <rasterresampler maxOversampling="2"/>
+      </pipe>
+      <blendMode>0</blendMode>
+    </maplayer>
+    <maplayer refreshOnNotifyMessage="" refreshOnNotifyEnabled="0" styleCategories="AllStyleCategories" autoRefreshEnabled="0" autoRefreshTime="0" maxScale="0" type="raster" minScale="1e+8" hasScaleBasedVisibilityFlag="0">
+      <extent>
+        <xmin>3467962.46631180122494698</xmin>
+        <ymin>5381212.26091426610946655</ymin>
+        <xmax>3547094.73576229484751821</xmax>
+        <ymax>5442037.33577089477330446</ymax>
+      </extent>
+      <id>corine2006_z0_test_gk320130423163031893</id>
+      <datasource>./corine2006_z0_test_gk3.tif</datasource>
+      <keywordList>
+        <value></value>
+      </keywordList>
+      <layername>corine2006_z0_test_gk3</layername>
+      <srs>
+        <spatialrefsys>
+          <proj4>+proj=tmerc +lat_0=0 +lon_0=9 +k=1 +x_0=3500000 +y_0=0 +ellps=bessel +towgs84=598.1,73.7,418.2,0.202,0.045,-2.455,6.7 +units=m +no_defs</proj4>
+          <srsid>2647</srsid>
+          <srid>31467</srid>
+          <authid>EPSG:31467</authid>
+          <description>DHDN / 3-degree Gauss-Kruger zone 3</description>
+          <projectionacronym>tmerc</projectionacronym>
+          <ellipsoidacronym>bessel</ellipsoidacronym>
+          <geographicflag>false</geographicflag>
+        </spatialrefsys>
+      </srs>
+      <resourceMetadata>
+        <identifier></identifier>
+        <parentidentifier></parentidentifier>
+        <language></language>
+        <type></type>
+        <title></title>
+        <abstract></abstract>
+        <links/>
+        <fees></fees>
+        <encoding></encoding>
+        <crs>
+          <spatialrefsys>
+            <proj4></proj4>
+            <srsid>0</srsid>
+            <srid>0</srid>
+            <authid></authid>
+            <description></description>
+            <projectionacronym></projectionacronym>
+            <ellipsoidacronym></ellipsoidacronym>
+            <geographicflag>false</geographicflag>
+          </spatialrefsys>
+        </crs>
+        <extent/>
+      </resourceMetadata>
+      <provider>gdal</provider>
+      <noData>
+        <noDataList useSrcNoData="1" bandNo="1"/>
+      </noData>
+      <map-layer-style-manager current="default">
+        <map-layer-style name="default"/>
+      </map-layer-style-manager>
+      <flags>
+        <Identifiable>1</Identifiable>
+        <Removable>1</Removable>
+        <Searchable>1</Searchable>
+      </flags>
+      <customproperties/>
+      <pipe>
+        <rasterrenderer alphaBand="-1" opacity="1" type="singlebandgray" gradient="BlackToWhite" grayBand="1">
+          <minMaxOrigin>
+            <limits>None</limits>
+            <extent>WholeRaster</extent>
+            <statAccuracy>Estimated</statAccuracy>
+            <cumulativeCutLower>0.02</cumulativeCutLower>
+            <cumulativeCutUpper>0.98</cumulativeCutUpper>
+            <stdDevFactor>2</stdDevFactor>
+          </minMaxOrigin>
+          <contrastEnhancement>
+            <minValue>0.01</minValue>
+            <maxValue>2</maxValue>
+            <algorithm>StretchAndClipToMinimumMaximum</algorithm>
+          </contrastEnhancement>
+        </rasterrenderer>
+        <brightnesscontrast contrast="0" brightness="0"/>
+        <huesaturation colorizeRed="255" colorizeOn="0" saturation="0" grayscaleMode="0" colorizeStrength="100" colorizeGreen="128" colorizeBlue="128"/>
+        <rasterresampler maxOversampling="2"/>
+      </pipe>
+      <blendMode>0</blendMode>
+    </maplayer>
+    <maplayer geometry="Point" refreshOnNotifyMessage="" refreshOnNotifyEnabled="0" styleCategories="AllStyleCategories" autoRefreshEnabled="0" simplifyDrawingHints="1" autoRefreshTime="0" labelsEnabled="1" simplifyLocal="1" maxScale="0" readOnly="0" type="vector" minScale="1e+8" simplifyAlgorithm="0" simplifyDrawingTol="1" simplifyMaxScale="1" hasScaleBasedVisibilityFlag="0">
+      <extent>
+        <xmin>3477870.2354538906365633</xmin>
+        <ymin>5394645.76025507133454084</ymin>
+        <xmax>3537534.97621648432686925</xmax>
+        <ymax>5426199.09931069985032082</ymax>
+      </extent>
+      <id>dwd_stationen_test20130331092958700</id>
+      <datasource>./dwd_stationen_test.shp</datasource>
+      <keywordList>
+        <value></value>
+      </keywordList>
+      <layername>dwd_stationen_test</layername>
+      <srs>
+        <spatialrefsys>
+          <proj4>+proj=tmerc +lat_0=0 +lon_0=9 +k=1 +x_0=3500000 +y_0=0 +ellps=bessel +towgs84=598.1,73.7,418.2,0.202,0.045,-2.455,6.7 +units=m +no_defs</proj4>
+          <srsid>2647</srsid>
+          <srid>31467</srid>
+          <authid>EPSG:31467</authid>
+          <description>DHDN / 3-degree Gauss-Kruger zone 3</description>
+          <projectionacronym>tmerc</projectionacronym>
+          <ellipsoidacronym>bessel</ellipsoidacronym>
+          <geographicflag>false</geographicflag>
+        </spatialrefsys>
+      </srs>
+      <resourceMetadata>
+        <identifier></identifier>
+        <parentidentifier></parentidentifier>
+        <language></language>
+        <type></type>
+        <title></title>
+        <abstract></abstract>
+        <links/>
+        <fees></fees>
+        <encoding></encoding>
+        <crs>
+          <spatialrefsys>
+            <proj4></proj4>
+            <srsid>0</srsid>
+            <srid>0</srid>
+            <authid></authid>
+            <description></description>
+            <projectionacronym></projectionacronym>
+            <ellipsoidacronym></ellipsoidacronym>
+            <geographicflag>false</geographicflag>
+          </spatialrefsys>
+        </crs>
+        <extent/>
+      </resourceMetadata>
+      <provider encoding="UTF-8">ogr</provider>
+      <vectorjoins/>
+      <layerDependencies/>
+      <dataDependencies/>
+      <legend type="default-vector"/>
+      <expressionfields/>
+      <map-layer-style-manager current="default">
+        <map-layer-style name="default"/>
+      </map-layer-style-manager>
+      <auxiliaryLayer/>
+      <flags>
+        <Identifiable>1</Identifiable>
+        <Removable>1</Removable>
+        <Searchable>1</Searchable>
+      </flags>
+      <renderer-v2 enableorderby="0" symbollevels="0" type="singleSymbol" forceraster="0">
+        <symbols>
+          <symbol alpha="1" name="0" type="marker" clip_to_extent="1" force_rhr="0">
+            <layer enabled="1" locked="0" pass="0" class="SimpleMarker">
+              <prop v="0" k="angle"/>
+              <prop v="255,128,0,255" k="color"/>
+              <prop v="1" k="horizontal_anchor_point"/>
+              <prop v="bevel" k="joinstyle"/>
+              <prop v="triangle" k="name"/>
+              <prop v="0,0" k="offset"/>
+              <prop v="3x:0,0,0,0,0,0" k="offset_map_unit_scale"/>
+              <prop v="MM" k="offset_unit"/>
+              <prop v="0,0,0,255" k="outline_color"/>
+              <prop v="solid" k="outline_style"/>
+              <prop v="0" k="outline_width"/>
+              <prop v="3x:0,0,0,0,0,0" k="outline_width_map_unit_scale"/>
+              <prop v="MM" k="outline_width_unit"/>
+              <prop v="area" k="scale_method"/>
+              <prop v="4" k="size"/>
+              <prop v="3x:0,0,0,0,0,0" k="size_map_unit_scale"/>
+              <prop v="MM" k="size_unit"/>
+              <prop v="1" k="vertical_anchor_point"/>
+              <data_defined_properties>
+                <Option type="Map">
+                  <Option name="name" value="" type="QString"/>
+                  <Option name="properties"/>
+                  <Option name="type" value="collection" type="QString"/>
+                </Option>
+              </data_defined_properties>
+            </layer>
+          </symbol>
+        </symbols>
+        <rotation/>
+        <sizescale/>
+      </renderer-v2>
+      <customproperties/>
+      <blendMode>0</blendMode>
+      <featureBlendMode>0</featureBlendMode>
+      <layerOpacity>1</layerOpacity>
+      <geometryOptions removeDuplicateNodes="0" geometryPrecision="0">
+        <activeChecks/>
+        <checkConfiguration/>
+      </geometryOptions>
+      <fieldConfiguration>
+        <field name="FID">
+          <editWidget type="">
+            <config>
+              <Option/>
+            </config>
+          </editWidget>
+        </field>
+      </fieldConfiguration>
+      <aliases>
+        <alias name="" field="FID" index="0"/>
+      </aliases>
+      <excludeAttributesWMS/>
+      <excludeAttributesWFS/>
+      <defaults>
+        <default applyOnUpdate="0" expression="" field="FID"/>
+      </defaults>
+      <constraints>
+        <constraint unique_strength="0" field="FID" notnull_strength="0" exp_strength="0" constraints="0"/>
+      </constraints>
+      <constraintExpressions>
+        <constraint field="FID" exp="" desc=""/>
+      </constraintExpressions>
+      <expressionfields/>
+      <attributeactions/>
+      <attributetableconfig sortOrder="0" actionWidgetStyle="dropDown" sortExpression="">
+        <columns/>
+      </attributetableconfig>
+      <conditionalstyles>
+        <rowstyles/>
+        <fieldstyles/>
+      </conditionalstyles>
+      <editform tolerant="1">.</editform>
+      <editforminit/>
+      <editforminitcodesource>0</editforminitcodesource>
+      <editforminitfilepath></editforminitfilepath>
+      <editforminitcode><![CDATA[]]></editforminitcode>
+      <featformsuppress>0</featformsuppress>
+      <editorlayout>generatedlayout</editorlayout>
+      <editable/>
+      <labelOnTop/>
+      <widgets/>
+      <previewExpression>"FID"</previewExpression>
+      <mapTip></mapTip>
+    </maplayer>
+    <maplayer refreshOnNotifyMessage="" refreshOnNotifyEnabled="0" styleCategories="AllStyleCategories" autoRefreshEnabled="0" autoRefreshTime="0" maxScale="0" type="raster" minScale="1e+8" hasScaleBasedVisibilityFlag="0">
+      <extent>
+        <xmin>3468000</xmin>
+        <ymin>5381000</ymin>
+        <xmax>3547000</xmax>
+        <ymax>5442000</ymax>
+      </extent>
+      <id>kdat10km1_test20130331092952534</id>
+      <datasource>./kdat10km1_test.tif</datasource>
+      <keywordList>
+        <value></value>
+      </keywordList>
+      <layername>kdat10km1_test</layername>
+      <srs>
+        <spatialrefsys>
+          <proj4>+proj=tmerc +lat_0=0 +lon_0=9 +k=1 +x_0=3500000 +y_0=0 +ellps=bessel +towgs84=598.1,73.7,418.2,0.202,0.045,-2.455,6.7 +units=m +no_defs</proj4>
+          <srsid>2647</srsid>
+          <srid>31467</srid>
+          <authid>EPSG:31467</authid>
+          <description>DHDN / 3-degree Gauss-Kruger zone 3</description>
+          <projectionacronym>tmerc</projectionacronym>
+          <ellipsoidacronym>bessel</ellipsoidacronym>
+          <geographicflag>false</geographicflag>
+        </spatialrefsys>
+      </srs>
+      <resourceMetadata>
+        <identifier></identifier>
+        <parentidentifier></parentidentifier>
+        <language></language>
+        <type></type>
+        <title></title>
+        <abstract></abstract>
+        <links/>
+        <fees></fees>
+        <encoding></encoding>
+        <crs>
+          <spatialrefsys>
+            <proj4></proj4>
+            <srsid>0</srsid>
+            <srid>0</srid>
+            <authid></authid>
+            <description></description>
+            <projectionacronym></projectionacronym>
+            <ellipsoidacronym></ellipsoidacronym>
+            <geographicflag>false</geographicflag>
+          </spatialrefsys>
+        </crs>
+        <extent/>
+      </resourceMetadata>
+      <provider>gdal</provider>
+      <noData>
+        <noDataList useSrcNoData="1" bandNo="1"/>
+      </noData>
+      <map-layer-style-manager current="default">
+        <map-layer-style name="default"/>
+      </map-layer-style-manager>
+      <flags>
+        <Identifiable>1</Identifiable>
+        <Removable>1</Removable>
+        <Searchable>1</Searchable>
+      </flags>
+      <customproperties/>
+      <pipe>
+        <rasterrenderer alphaBand="-1" opacity="1" type="singlebandgray" gradient="BlackToWhite" grayBand="1">
+          <minMaxOrigin>
+            <limits>None</limits>
+            <extent>WholeRaster</extent>
+            <statAccuracy>Estimated</statAccuracy>
+            <cumulativeCutLower>0.02</cumulativeCutLower>
+            <cumulativeCutUpper>0.98</cumulativeCutUpper>
+            <stdDevFactor>2</stdDevFactor>
+          </minMaxOrigin>
+          <contrastEnhancement>
+            <minValue>1191</minValue>
+            <maxValue>1768</maxValue>
+            <algorithm>StretchAndClipToMinimumMaximum</algorithm>
+          </contrastEnhancement>
+        </rasterrenderer>
+        <brightnesscontrast contrast="0" brightness="0"/>
+        <huesaturation colorizeRed="255" colorizeOn="0" saturation="0" grayscaleMode="0" colorizeStrength="100" colorizeGreen="128" colorizeBlue="128"/>
+        <rasterresampler maxOversampling="2"/>
+      </pipe>
+      <blendMode>0</blendMode>
+    </maplayer>
+    <maplayer geometry="Point" refreshOnNotifyMessage="" refreshOnNotifyEnabled="0" styleCategories="AllStyleCategories" autoRefreshEnabled="0" simplifyDrawingHints="1" autoRefreshTime="0" labelsEnabled="1" simplifyLocal="1" maxScale="0" readOnly="0" type="vector" minScale="1e+8" simplifyAlgorithm="0" simplifyDrawingTol="1" simplifyMaxScale="1" hasScaleBasedVisibilityFlag="0">
+      <extent>
+        <xmin>3517600.68546707555651665</xmin>
+        <ymin>5406204.70377413742244244</ymin>
+        <xmax>3517600.68546707555651665</xmax>
+        <ymax>5406204.70377413742244244</ymax>
+      </extent>
+      <id>standort_test20130331092958849</id>
+      <datasource>./standort_test.shp</datasource>
+      <keywordList>
+        <value></value>
+      </keywordList>
+      <layername>standort_test</layername>
+      <srs>
+        <spatialrefsys>
+          <proj4>+proj=tmerc +lat_0=0 +lon_0=9 +k=1 +x_0=3500000 +y_0=0 +ellps=bessel +towgs84=598.1,73.7,418.2,0.202,0.045,-2.455,6.7 +units=m +no_defs</proj4>
+          <srsid>2647</srsid>
+          <srid>31467</srid>
+          <authid>EPSG:31467</authid>
+          <description>DHDN / 3-degree Gauss-Kruger zone 3</description>
+          <projectionacronym>tmerc</projectionacronym>
+          <ellipsoidacronym>bessel</ellipsoidacronym>
+          <geographicflag>false</geographicflag>
+        </spatialrefsys>
+      </srs>
+      <resourceMetadata>
+        <identifier></identifier>
+        <parentidentifier></parentidentifier>
+        <language></language>
+        <type></type>
+        <title></title>
+        <abstract></abstract>
+        <links/>
+        <fees></fees>
+        <encoding></encoding>
+        <crs>
+          <spatialrefsys>
+            <proj4></proj4>
+            <srsid>0</srsid>
+            <srid>0</srid>
+            <authid></authid>
+            <description></description>
+            <projectionacronym></projectionacronym>
+            <ellipsoidacronym></ellipsoidacronym>
+            <geographicflag>false</geographicflag>
+          </spatialrefsys>
+        </crs>
+        <extent/>
+      </resourceMetadata>
+      <provider encoding="UTF-8">ogr</provider>
+      <vectorjoins/>
+      <layerDependencies/>
+      <dataDependencies/>
+      <legend type="default-vector"/>
+      <expressionfields/>
+      <map-layer-style-manager current="default">
+        <map-layer-style name="default"/>
+      </map-layer-style-manager>
+      <auxiliaryLayer/>
+      <flags>
+        <Identifiable>1</Identifiable>
+        <Removable>1</Removable>
+        <Searchable>1</Searchable>
+      </flags>
+      <renderer-v2 enableorderby="0" symbollevels="0" type="singleSymbol" forceraster="0">
+        <symbols>
+          <symbol alpha="1" name="0" type="marker" clip_to_extent="1" force_rhr="0">
+            <layer enabled="1" locked="0" pass="0" class="SimpleMarker">
+              <prop v="0" k="angle"/>
+              <prop v="255,0,0,255" k="color"/>
+              <prop v="1" k="horizontal_anchor_point"/>
+              <prop v="bevel" k="joinstyle"/>
+              <prop v="diamond" k="name"/>
+              <prop v="0,0" k="offset"/>
+              <prop v="3x:0,0,0,0,0,0" k="offset_map_unit_scale"/>
+              <prop v="MM" k="offset_unit"/>
+              <prop v="0,0,0,255" k="outline_color"/>
+              <prop v="solid" k="outline_style"/>
+              <prop v="0" k="outline_width"/>
+              <prop v="3x:0,0,0,0,0,0" k="outline_width_map_unit_scale"/>
+              <prop v="MM" k="outline_width_unit"/>
+              <prop v="area" k="scale_method"/>
+              <prop v="4" k="size"/>
+              <prop v="3x:0,0,0,0,0,0" k="size_map_unit_scale"/>
+              <prop v="MM" k="size_unit"/>
+              <prop v="1" k="vertical_anchor_point"/>
+              <data_defined_properties>
+                <Option type="Map">
+                  <Option name="name" value="" type="QString"/>
+                  <Option name="properties"/>
+                  <Option name="type" value="collection" type="QString"/>
+                </Option>
+              </data_defined_properties>
+            </layer>
+          </symbol>
+        </symbols>
+        <rotation/>
+        <sizescale/>
+      </renderer-v2>
+      <customproperties/>
+      <blendMode>0</blendMode>
+      <featureBlendMode>0</featureBlendMode>
+      <layerOpacity>1</layerOpacity>
+      <geometryOptions removeDuplicateNodes="0" geometryPrecision="0">
+        <activeChecks/>
+        <checkConfiguration/>
+      </geometryOptions>
+      <fieldConfiguration>
+        <field name="Name">
+          <editWidget type="">
+            <config>
+              <Option/>
+            </config>
+          </editWidget>
+        </field>
+        <field name="Descriptio">
+          <editWidget type="">
+            <config>
+              <Option/>
+            </config>
+          </editWidget>
+        </field>
+        <field name="xcoord">
+          <editWidget type="">
+            <config>
+              <Option/>
+            </config>
+          </editWidget>
+        </field>
+        <field name="ycoord">
+          <editWidget type="">
+            <config>
+              <Option/>
+            </config>
+          </editWidget>
+        </field>
+      </fieldConfiguration>
+      <aliases>
+        <alias name="" field="Name" index="0"/>
+        <alias name="" field="Descriptio" index="1"/>
+        <alias name="" field="xcoord" index="2"/>
+        <alias name="" field="ycoord" index="3"/>
+      </aliases>
+      <excludeAttributesWMS/>
+      <excludeAttributesWFS/>
+      <defaults>
+        <default applyOnUpdate="0" expression="" field="Name"/>
+        <default applyOnUpdate="0" expression="" field="Descriptio"/>
+        <default applyOnUpdate="0" expression="" field="xcoord"/>
+        <default applyOnUpdate="0" expression="" field="ycoord"/>
+      </defaults>
+      <constraints>
+        <constraint unique_strength="0" field="Name" notnull_strength="0" exp_strength="0" constraints="0"/>
+        <constraint unique_strength="0" field="Descriptio" notnull_strength="0" exp_strength="0" constraints="0"/>
+        <constraint unique_strength="0" field="xcoord" notnull_strength="0" exp_strength="0" constraints="0"/>
+        <constraint unique_strength="0" field="ycoord" notnull_strength="0" exp_strength="0" constraints="0"/>
+      </constraints>
+      <constraintExpressions>
+        <constraint field="Name" exp="" desc=""/>
+        <constraint field="Descriptio" exp="" desc=""/>
+        <constraint field="xcoord" exp="" desc=""/>
+        <constraint field="ycoord" exp="" desc=""/>
+      </constraintExpressions>
+      <expressionfields/>
+      <attributeactions>
+        <defaultAction value="{00000000-0000-0000-0000-000000000000}" key="Canvas"/>
+      </attributeactions>
+      <attributetableconfig sortOrder="0" actionWidgetStyle="dropDown" sortExpression="">
+        <columns/>
+      </attributetableconfig>
+      <conditionalstyles>
+        <rowstyles/>
+        <fieldstyles/>
+      </conditionalstyles>
+      <editform tolerant="1">.</editform>
+      <editforminit/>
+      <editforminitcodesource>0</editforminitcodesource>
+      <editforminitfilepath></editforminitfilepath>
+      <editforminitcode><![CDATA[]]></editforminitcode>
+      <featformsuppress>0</featformsuppress>
+      <editorlayout>generatedlayout</editorlayout>
+      <editable/>
+      <labelOnTop/>
+      <widgets/>
+      <previewExpression>"Name"</previewExpression>
+      <mapTip></mapTip>
+    </maplayer>
+    <maplayer refreshOnNotifyMessage="" refreshOnNotifyEnabled="0" styleCategories="AllStyleCategories" autoRefreshEnabled="0" autoRefreshTime="0" maxScale="0" type="raster" minScale="1e+8" hasScaleBasedVisibilityFlag="0">
+      <extent>
+        <xmin>3468000</xmin>
+        <ymin>5381000</ymin>
+        <xmax>3547000</xmax>
+        <ymax>5442000</ymax>
+      </extent>
+      <id>wdat1km10_test20130331092956274</id>
+      <datasource>./wdat1km10_test.tif</datasource>
+      <keywordList>
+        <value></value>
+      </keywordList>
+      <layername>wdat1km10_test</layername>
+      <srs>
+        <spatialrefsys>
+          <proj4>+proj=tmerc +lat_0=0 +lon_0=9 +k=1 +x_0=3500000 +y_0=0 +ellps=bessel +towgs84=598.1,73.7,418.2,0.202,0.045,-2.455,6.7 +units=m +no_defs</proj4>
+          <srsid>2647</srsid>
+          <srid>31467</srid>
+          <authid>EPSG:31467</authid>
+          <description>DHDN / 3-degree Gauss-Kruger zone 3</description>
+          <projectionacronym>tmerc</projectionacronym>
+          <ellipsoidacronym>bessel</ellipsoidacronym>
+          <geographicflag>false</geographicflag>
+        </spatialrefsys>
+      </srs>
+      <resourceMetadata>
+        <identifier></identifier>
+        <parentidentifier></parentidentifier>
+        <language></language>
+        <type></type>
+        <title></title>
+        <abstract></abstract>
+        <links/>
+        <fees></fees>
+        <encoding></encoding>
+        <crs>
+          <spatialrefsys>
+            <proj4></proj4>
+            <srsid>0</srsid>
+            <srid>0</srid>
+            <authid></authid>
+            <description></description>
+            <projectionacronym></projectionacronym>
+            <ellipsoidacronym></ellipsoidacronym>
+            <geographicflag>false</geographicflag>
+          </spatialrefsys>
+        </crs>
+        <extent/>
+      </resourceMetadata>
+      <provider>gdal</provider>
+      <noData>
+        <noDataList useSrcNoData="1" bandNo="1"/>
+      </noData>
+      <map-layer-style-manager current="default">
+        <map-layer-style name="default"/>
+      </map-layer-style-manager>
+      <flags>
+        <Identifiable>1</Identifiable>
+        <Removable>1</Removable>
+        <Searchable>1</Searchable>
+      </flags>
+      <customproperties/>
+      <pipe>
+        <rasterrenderer alphaBand="-1" opacity="1" type="singlebandgray" gradient="BlackToWhite" grayBand="1">
+          <minMaxOrigin>
+            <limits>None</limits>
+            <extent>WholeRaster</extent>
+            <statAccuracy>Estimated</statAccuracy>
+            <cumulativeCutLower>0.02</cumulativeCutLower>
+            <cumulativeCutUpper>0.98</cumulativeCutUpper>
+            <stdDevFactor>2</stdDevFactor>
+          </minMaxOrigin>
+          <contrastEnhancement>
+            <minValue>13</minValue>
+            <maxValue>47</maxValue>
+            <algorithm>StretchAndClipToMinimumMaximum</algorithm>
+          </contrastEnhancement>
+        </rasterrenderer>
+        <brightnesscontrast contrast="0" brightness="0"/>
+        <huesaturation colorizeRed="255" colorizeOn="0" saturation="0" grayscaleMode="0" colorizeStrength="100" colorizeGreen="128" colorizeBlue="128"/>
+        <rasterresampler maxOversampling="2"/>
+      </pipe>
+      <blendMode>0</blendMode>
+    </maplayer>
+  </projectlayers>
+  <layerorder>
+    <layer id="standort_test20130331092958849"/>
+    <layer id="dwd_stationen_test20130331092958700"/>
+    <layer id="wdat1km10_test20130331092956274"/>
+    <layer id="kdat10km1_test20130331092952534"/>
+    <layer id="corine2006_z0_test_gk320130423163031893"/>
+    <layer id="cdat10km1_test20130331092943187"/>
+  </layerorder>
+  <properties>
+    <Gui>
+      <SelectionColorGreenPart type="int">255</SelectionColorGreenPart>
+      <SelectionColorBluePart type="int">0</SelectionColorBluePart>
+      <CanvasColorBluePart type="int">255</CanvasColorBluePart>
+      <CanvasColorRedPart type="int">255</CanvasColorRedPart>
+      <SelectionColorRedPart type="int">255</SelectionColorRedPart>
+      <SelectionColorAlphaPart type="int">255</SelectionColorAlphaPart>
+      <CanvasColorGreenPart type="int">255</CanvasColorGreenPart>
+    </Gui>
+    <WMSServiceTitle type="QString"></WMSServiceTitle>
+    <WMSServiceCapabilities type="bool">false</WMSServiceCapabilities>
+    <WMSContactMail type="QString"></WMSContactMail>
+    <WFSLayers type="QStringList"/>
+    <WMSServiceAbstract type="QString"></WMSServiceAbstract>
+    <PositionPrecision>
+      <DecimalPlaces type="int">2</DecimalPlaces>
+      <Automatic type="bool">true</Automatic>
+    </PositionPrecision>
+    <WMSContactPhone type="QString"></WMSContactPhone>
+    <WMSContactOrganization type="QString"></WMSContactOrganization>
+    <Legend>
+      <filterByMap type="bool">false</filterByMap>
+    </Legend>
+    <WMSAddWktGeometry type="bool">false</WMSAddWktGeometry>
+    <Identify>
+      <disabledLayers type="QStringList"/>
+    </Identify>
+    <SpatialRefSys>
+      <ProjectCrs type="QString">EPSG:31467</ProjectCrs>
+      <ProjectionsEnabled type="int">1</ProjectionsEnabled>
+      <ProjectCRSID type="int">2647</ProjectCRSID>
+      <ProjectCRSProj4String type="QString">+proj=tmerc +lat_0=0 +lon_0=9 +k=1 +x_0=3500000 +y_0=0 +ellps=bessel +towgs84=598.1,73.7,418.2,0.202,0.045,-2.455,6.7 +units=m +no_defs</ProjectCRSProj4String>
+    </SpatialRefSys>
+    <Measurement>
+      <DistanceUnits type="QString"></DistanceUnits>
+      <AreaUnits type="QString"></AreaUnits>
+    </Measurement>
+    <WMSOnlineResource type="QString"></WMSOnlineResource>
+    <WMSContactPerson type="QString"></WMSContactPerson>
+    <PAL>
+      <CandidatesPolygon type="int">30</CandidatesPolygon>
+      <SearchMethod type="int">0</SearchMethod>
+      <TextFormat type="int">0</TextFormat>
+      <CandidatesPoint type="int">16</CandidatesPoint>
+      <CandidatesLine type="int">50</CandidatesLine>
+      <ShowingAllLabels type="bool">false</ShowingAllLabels>
+      <ShowingPartialsLabels type="bool">true</ShowingPartialsLabels>
+      <DrawRectOnly type="bool">false</DrawRectOnly>
+      <ShowingCandidates type="bool">false</ShowingCandidates>
+    </PAL>
+    <Paths>
+      <Absolute type="bool">false</Absolute>
+    </Paths>
+  </properties>
+  <visibility-presets/>
+  <transformContext/>
+  <projectMetadata>
+    <identifier></identifier>
+    <parentidentifier></parentidentifier>
+    <language></language>
+    <type></type>
     <title></title>
-    <relations/>
-    <mapcanvas>
-        <units>meters</units>
-        <extent>
-            <xmin>3489401.9584568184800446</xmin>
-            <ymin>5424221.18003726564347744</ymin>
-            <xmax>3493189.33131157932803035</xmax>
-            <ymax>5427272.11928137764334679</ymax>
-        </extent>
-        <projections>0</projections>
-        <destinationsrs>
-            <spatialrefsys>
-                <proj4>+proj=tmerc +lat_0=0 +lon_0=9 +k=1 +x_0=3500000 +y_0=0 +ellps=bessel +towgs84=598.1,73.7,418.2,0.202,0.045,-2.455,6.7 +units=m +no_defs</proj4>
-                <srsid>2647</srsid>
-                <srid>31467</srid>
-                <authid>EPSG:31467</authid>
-                <description>DHDN / Gauss-Kruger zone 3</description>
-                <projectionacronym>tmerc</projectionacronym>
-                <ellipsoidacronym>bessel</ellipsoidacronym>
-                <geographicflag>false</geographicflag>
-            </spatialrefsys>
-        </destinationsrs>
-        <layer_coordinate_transform_info/>
-    </mapcanvas>
-    <legend updateDrawingOrder="true">
-        <legendlayer drawingOrder="-1" open="false" checked="Qt::Checked" name="standort_test" showFeatureCount="0">
-            <filegroup open="false" hidden="false">
-                <legendlayerfile isInOverview="0" layerid="standort_test20130331092958849" visible="1"/>
-            </filegroup>
-        </legendlayer>
-        <legendlayer drawingOrder="-1" open="false" checked="Qt::Checked" name="dwd_stationen_test" showFeatureCount="0">
-            <filegroup open="false" hidden="false">
-                <legendlayerfile isInOverview="0" layerid="dwd_stationen_test20130331092958700" visible="1"/>
-            </filegroup>
-        </legendlayer>
-        <legendlayer drawingOrder="-1" open="false" checked="Qt::Checked" name="wdat1km10_test" showFeatureCount="0">
-            <filegroup open="false" hidden="false">
-                <legendlayerfile isInOverview="0" layerid="wdat1km10_test20130331092956274" visible="1"/>
-            </filegroup>
-        </legendlayer>
-        <legendlayer drawingOrder="-1" open="false" checked="Qt::Checked" name="kdat10km1_test" showFeatureCount="0">
-            <filegroup open="false" hidden="false">
-                <legendlayerfile isInOverview="0" layerid="kdat10km1_test20130331092952534" visible="1"/>
-            </filegroup>
-        </legendlayer>
-        <legendlayer drawingOrder="-1" open="false" checked="Qt::Checked" name="corine2006_z0_test_gk3" showFeatureCount="0">
-            <filegroup open="false" hidden="false">
-                <legendlayerfile isInOverview="0" layerid="corine2006_z0_test_gk320130423163031893" visible="1"/>
-            </filegroup>
-        </legendlayer>
-        <legendlayer drawingOrder="-1" open="false" checked="Qt::Checked" name="cdat10km1_test" showFeatureCount="0">
-            <filegroup open="false" hidden="false">
-                <legendlayerfile isInOverview="0" layerid="cdat10km1_test20130331092943187" visible="1"/>
-            </filegroup>
-        </legendlayer>
-    </legend>
-    <projectlayers layercount="6">
-        <maplayer minimumScale="0" maximumScale="1e+08" type="raster" hasScaleBasedVisibilityFlag="0">
-            <id>cdat10km1_test20130331092943187</id>
-            <datasource>./cdat10km1_test.tif</datasource>
-            <title></title>
-            <abstract></abstract>
-            <keywordList>
-                <value></value>
-            </keywordList>
-            <layername>cdat10km1_test</layername>
-            <srs>
-                <spatialrefsys>
-                    <proj4>+proj=tmerc +lat_0=0 +lon_0=9 +k=1 +x_0=3500000 +y_0=0 +ellps=bessel +towgs84=598.1,73.7,418.2,0.202,0.045,-2.455,6.7 +units=m +no_defs</proj4>
-                    <srsid>2647</srsid>
-                    <srid>31467</srid>
-                    <authid>EPSG:31467</authid>
-                    <description>DHDN / Gauss-Kruger zone 3</description>
-                    <projectionacronym>tmerc</projectionacronym>
-                    <ellipsoidacronym>bessel</ellipsoidacronym>
-                    <geographicflag>false</geographicflag>
-                </spatialrefsys>
-            </srs>
-            <customproperties/>
-            <provider>gdal</provider>
-            <pipe>
-                <rasterrenderer gradient="BlackToWhite" opacity="1" alphaBand="-1" type="singlebandgray" grayBand="1">
-                    <contrastEnhancement>
-                        <minValue>15</minValue>
-                        <maxValue>53</maxValue>
-                        <algorithm>StretchAndClipToMinimumMaximum</algorithm>
-                    </contrastEnhancement>
-                </rasterrenderer>
-                <brightnesscontrast brightness="0" contrast="0"/>
-                <huesaturation colorizeGreen="128" colorizeOn="0" colorizeRed="255" colorizeBlue="128" grayscaleMode="0" saturation="0" colorizeStrength="100"/>
-                <rasterresampler maxOversampling="2"/>
-            </pipe>
-            <blendMode>0</blendMode>
-        </maplayer>
-        <maplayer minimumScale="0" maximumScale="1e+08" type="raster" hasScaleBasedVisibilityFlag="0">
-            <id>corine2006_z0_test_gk320130423163031893</id>
-            <datasource>./corine2006_z0_test_gk3.tif</datasource>
-            <title></title>
-            <abstract></abstract>
-            <keywordList>
-                <value></value>
-            </keywordList>
-            <layername>corine2006_z0_test_gk3</layername>
-            <srs>
-                <spatialrefsys>
-                    <proj4>+proj=tmerc +lat_0=0 +lon_0=9 +k=1 +x_0=3500000 +y_0=0 +ellps=bessel +towgs84=598.1,73.7,418.2,0.202,0.045,-2.455,6.7 +units=m +no_defs</proj4>
-                    <srsid>2647</srsid>
-                    <srid>31467</srid>
-                    <authid>EPSG:31467</authid>
-                    <description>DHDN / Gauss-Kruger zone 3</description>
-                    <projectionacronym>tmerc</projectionacronym>
-                    <ellipsoidacronym>bessel</ellipsoidacronym>
-                    <geographicflag>false</geographicflag>
-                </spatialrefsys>
-            </srs>
-            <customproperties/>
-            <provider>gdal</provider>
-            <pipe>
-                <rasterrenderer gradient="BlackToWhite" opacity="1" alphaBand="-1" type="singlebandgray" grayBand="1">
-                    <contrastEnhancement>
-                        <minValue>0.01</minValue>
-                        <maxValue>2</maxValue>
-                        <algorithm>StretchAndClipToMinimumMaximum</algorithm>
-                    </contrastEnhancement>
-                </rasterrenderer>
-                <brightnesscontrast brightness="0" contrast="0"/>
-                <huesaturation colorizeGreen="128" colorizeOn="0" colorizeRed="255" colorizeBlue="128" grayscaleMode="0" saturation="0" colorizeStrength="100"/>
-                <rasterresampler maxOversampling="2"/>
-            </pipe>
-            <blendMode>0</blendMode>
-        </maplayer>
-        <maplayer minimumScale="0" maximumScale="1e+08" simplifyDrawingHints="1" minLabelScale="1" maxLabelScale="1e+08" simplifyDrawingTol="1" geometry="Point" simplifyMaxScale="1" type="vector" hasScaleBasedVisibilityFlag="0" simplifyLocal="1" scaleBasedLabelVisibilityFlag="0">
-            <id>dwd_stationen_test20130331092958700</id>
-            <datasource>./dwd_stationen_test.shp</datasource>
-            <title></title>
-            <abstract></abstract>
-            <keywordList>
-                <value></value>
-            </keywordList>
-            <layername>dwd_stationen_test</layername>
-            <srs>
-                <spatialrefsys>
-                    <proj4>+proj=tmerc +lat_0=0 +lon_0=9 +k=1 +x_0=3500000 +y_0=0 +ellps=bessel +towgs84=598.1,73.7,418.2,0.202,0.045,-2.455,6.7 +units=m +no_defs</proj4>
-                    <srsid>2647</srsid>
-                    <srid>31467</srid>
-                    <authid>EPSG:31467</authid>
-                    <description>DHDN / Gauss-Kruger zone 3</description>
-                    <projectionacronym>tmerc</projectionacronym>
-                    <ellipsoidacronym>bessel</ellipsoidacronym>
-                    <geographicflag>false</geographicflag>
-                </spatialrefsys>
-            </srs>
-            <provider encoding="UTF-8">ogr</provider>
-            <previewExpression></previewExpression>
-            <vectorjoins/>
-            <renderer-v2 symbollevels="0" type="singleSymbol">
-                <symbols>
-                    <symbol alpha="1" type="marker" name="0">
-                        <layer pass="0" class="SimpleMarker" locked="0">
-                            <prop k="angle" v="0"/>
-                            <prop k="color" v="255,128,0,255"/>
-                            <prop k="color_border" v="0,0,0,255"/>
-                            <prop k="horizontal_anchor_point" v="1"/>
-                            <prop k="name" v="triangle"/>
-                            <prop k="offset" v="0,0"/>
-                            <prop k="offset_unit" v="MM"/>
-                            <prop k="outline_style" v="solid"/>
-                            <prop k="outline_width" v="0"/>
-                            <prop k="outline_width_unit" v="MM"/>
-                            <prop k="scale_method" v="area"/>
-                            <prop k="size" v="4"/>
-                            <prop k="size_unit" v="MM"/>
-                            <prop k="vertical_anchor_point" v="1"/>
-                        </layer>
-                    </symbol>
-                </symbols>
-                <rotation/>
-                <sizescale scalemethod="area"/>
-            </renderer-v2>
-            <customproperties/>
-            <blendMode>0</blendMode>
-            <featureBlendMode>0</featureBlendMode>
-            <layerTransparency>0</layerTransparency>
-            <displayfield>FID</displayfield>
-            <label>0</label>
-            <labelattributes>
-                <label fieldname="" text="Label"/>
-                <family fieldname="" name="Sans Serif"/>
-                <size fieldname="" units="pt" value="12"/>
-                <bold fieldname="" on="0"/>
-                <italic fieldname="" on="0"/>
-                <underline fieldname="" on="0"/>
-                <strikeout fieldname="" on="0"/>
-                <color fieldname="" red="0" blue="0" green="0"/>
-                <x fieldname=""/>
-                <y fieldname=""/>
-                <offset x="0" y="0" units="pt" yfieldname="" xfieldname=""/>
-                <angle fieldname="" value="0" auto="0"/>
-                <alignment fieldname="" value="center"/>
-                <buffercolor fieldname="" red="255" blue="255" green="255"/>
-                <buffersize fieldname="" units="pt" value="1"/>
-                <bufferenabled fieldname="" on=""/>
-                <multilineenabled fieldname="" on=""/>
-                <selectedonly on=""/>
-            </labelattributes>
-            <edittypes>
-                <edittype labelontop="0" editable="1" type="0" name="FID"/>
-            </edittypes>
-            <editform>.</editform>
-            <editforminit></editforminit>
-            <featformsuppress>0</featformsuppress>
-            <annotationform>.</annotationform>
-            <editorlayout>generatedlayout</editorlayout>
-            <excludeAttributesWMS/>
-            <excludeAttributesWFS/>
-            <attributeactions/>
-        </maplayer>
-        <maplayer minimumScale="0" maximumScale="1e+08" type="raster" hasScaleBasedVisibilityFlag="0">
-            <id>kdat10km1_test20130331092952534</id>
-            <datasource>./kdat10km1_test.tif</datasource>
-            <title></title>
-            <abstract></abstract>
-            <keywordList>
-                <value></value>
-            </keywordList>
-            <layername>kdat10km1_test</layername>
-            <srs>
-                <spatialrefsys>
-                    <proj4>+proj=tmerc +lat_0=0 +lon_0=9 +k=1 +x_0=3500000 +y_0=0 +ellps=bessel +towgs84=598.1,73.7,418.2,0.202,0.045,-2.455,6.7 +units=m +no_defs</proj4>
-                    <srsid>2647</srsid>
-                    <srid>31467</srid>
-                    <authid>EPSG:31467</authid>
-                    <description>DHDN / Gauss-Kruger zone 3</description>
-                    <projectionacronym>tmerc</projectionacronym>
-                    <ellipsoidacronym>bessel</ellipsoidacronym>
-                    <geographicflag>false</geographicflag>
-                </spatialrefsys>
-            </srs>
-            <customproperties/>
-            <provider>gdal</provider>
-            <pipe>
-                <rasterrenderer gradient="BlackToWhite" opacity="1" alphaBand="-1" type="singlebandgray" grayBand="1">
-                    <contrastEnhancement>
-                        <minValue>1191</minValue>
-                        <maxValue>1768</maxValue>
-                        <algorithm>StretchAndClipToMinimumMaximum</algorithm>
-                    </contrastEnhancement>
-                </rasterrenderer>
-                <brightnesscontrast brightness="0" contrast="0"/>
-                <huesaturation colorizeGreen="128" colorizeOn="0" colorizeRed="255" colorizeBlue="128" grayscaleMode="0" saturation="0" colorizeStrength="100"/>
-                <rasterresampler maxOversampling="2"/>
-            </pipe>
-            <blendMode>0</blendMode>
-        </maplayer>
-        <maplayer minimumScale="0" maximumScale="1e+08" simplifyDrawingHints="1" minLabelScale="1" maxLabelScale="1e+08" simplifyDrawingTol="1" geometry="Point" simplifyMaxScale="1" type="vector" hasScaleBasedVisibilityFlag="0" simplifyLocal="1" scaleBasedLabelVisibilityFlag="0">
-            <id>standort_test20130331092958849</id>
-            <datasource>./standort_test.shp</datasource>
-            <title></title>
-            <abstract></abstract>
-            <keywordList>
-                <value></value>
-            </keywordList>
-            <layername>standort_test</layername>
-            <srs>
-                <spatialrefsys>
-                    <proj4>+proj=tmerc +lat_0=0 +lon_0=9 +k=1 +x_0=3500000 +y_0=0 +ellps=bessel +towgs84=598.1,73.7,418.2,0.202,0.045,-2.455,6.7 +units=m +no_defs</proj4>
-                    <srsid>2647</srsid>
-                    <srid>31467</srid>
-                    <authid>EPSG:31467</authid>
-                    <description>DHDN / Gauss-Kruger zone 3</description>
-                    <projectionacronym>tmerc</projectionacronym>
-                    <ellipsoidacronym>bessel</ellipsoidacronym>
-                    <geographicflag>false</geographicflag>
-                </spatialrefsys>
-            </srs>
-            <provider encoding="UTF-8">ogr</provider>
-            <previewExpression></previewExpression>
-            <vectorjoins/>
-            <renderer-v2 symbollevels="0" type="singleSymbol">
-                <symbols>
-                    <symbol alpha="1" type="marker" name="0">
-                        <layer pass="0" class="SimpleMarker" locked="0">
-                            <prop k="angle" v="0"/>
-                            <prop k="color" v="255,0,0,255"/>
-                            <prop k="color_border" v="0,0,0,255"/>
-                            <prop k="horizontal_anchor_point" v="1"/>
-                            <prop k="name" v="diamond"/>
-                            <prop k="offset" v="0,0"/>
-                            <prop k="offset_unit" v="MM"/>
-                            <prop k="outline_style" v="solid"/>
-                            <prop k="outline_width" v="0"/>
-                            <prop k="outline_width_unit" v="MM"/>
-                            <prop k="scale_method" v="area"/>
-                            <prop k="size" v="4"/>
-                            <prop k="size_unit" v="MM"/>
-                            <prop k="vertical_anchor_point" v="1"/>
-                        </layer>
-                    </symbol>
-                </symbols>
-                <rotation/>
-                <sizescale scalemethod="area"/>
-            </renderer-v2>
-            <customproperties/>
-            <blendMode>0</blendMode>
-            <featureBlendMode>0</featureBlendMode>
-            <layerTransparency>0</layerTransparency>
-            <displayfield>Name</displayfield>
-            <label>0</label>
-            <labelattributes>
-                <label fieldname="" text="Label"/>
-                <family fieldname="" name="Sans Serif"/>
-                <size fieldname="" units="pt" value="12"/>
-                <bold fieldname="" on="0"/>
-                <italic fieldname="" on="0"/>
-                <underline fieldname="" on="0"/>
-                <strikeout fieldname="" on="0"/>
-                <color fieldname="" red="0" blue="0" green="0"/>
-                <x fieldname=""/>
-                <y fieldname=""/>
-                <offset x="0" y="0" units="pt" yfieldname="" xfieldname=""/>
-                <angle fieldname="" value="0" auto="0"/>
-                <alignment fieldname="" value="center"/>
-                <buffercolor fieldname="" red="255" blue="255" green="255"/>
-                <buffersize fieldname="" units="pt" value="1"/>
-                <bufferenabled fieldname="" on=""/>
-                <multilineenabled fieldname="" on=""/>
-                <selectedonly on=""/>
-            </labelattributes>
-            <edittypes>
-                <edittype labelontop="0" editable="1" type="0" name="Descriptio"/>
-                <edittype labelontop="0" editable="1" type="0" name="Name"/>
-            </edittypes>
-            <editform>.</editform>
-            <editforminit></editforminit>
-            <featformsuppress>0</featformsuppress>
-            <annotationform>.</annotationform>
-            <editorlayout>generatedlayout</editorlayout>
-            <excludeAttributesWMS/>
-            <excludeAttributesWFS/>
-            <attributeactions/>
-        </maplayer>
-        <maplayer minimumScale="0" maximumScale="1e+08" type="raster" hasScaleBasedVisibilityFlag="0">
-            <id>wdat1km10_test20130331092956274</id>
-            <datasource>./wdat1km10_test.tif</datasource>
-            <title></title>
-            <abstract></abstract>
-            <keywordList>
-                <value></value>
-            </keywordList>
-            <layername>wdat1km10_test</layername>
-            <srs>
-                <spatialrefsys>
-                    <proj4>+proj=tmerc +lat_0=0 +lon_0=9 +k=1 +x_0=3500000 +y_0=0 +ellps=bessel +towgs84=598.1,73.7,418.2,0.202,0.045,-2.455,6.7 +units=m +no_defs</proj4>
-                    <srsid>2647</srsid>
-                    <srid>31467</srid>
-                    <authid>EPSG:31467</authid>
-                    <description>DHDN / Gauss-Kruger zone 3</description>
-                    <projectionacronym>tmerc</projectionacronym>
-                    <ellipsoidacronym>bessel</ellipsoidacronym>
-                    <geographicflag>false</geographicflag>
-                </spatialrefsys>
-            </srs>
-            <customproperties/>
-            <provider>gdal</provider>
-            <pipe>
-                <rasterrenderer gradient="BlackToWhite" opacity="1" alphaBand="-1" type="singlebandgray" grayBand="1">
-                    <contrastEnhancement>
-                        <minValue>13</minValue>
-                        <maxValue>47</maxValue>
-                        <algorithm>StretchAndClipToMinimumMaximum</algorithm>
-                    </contrastEnhancement>
-                </rasterrenderer>
-                <brightnesscontrast brightness="0" contrast="0"/>
-                <huesaturation colorizeGreen="128" colorizeOn="0" colorizeRed="255" colorizeBlue="128" grayscaleMode="0" saturation="0" colorizeStrength="100"/>
-                <rasterresampler maxOversampling="2"/>
-            </pipe>
-            <blendMode>0</blendMode>
-        </maplayer>
-    </projectlayers>
-    <properties>
-        <WMSServiceAbstract type="QString"></WMSServiceAbstract>
-        <WMSOnlineResource type="QString"></WMSOnlineResource>
-        <WMSContactPerson type="QString"></WMSContactPerson>
-        <Identify>
-            <disabledLayers type="QStringList"/>
-        </Identify>
-        <WMSContactPhone type="QString"></WMSContactPhone>
-        <SpatialRefSys>
-            <ProjectCRSProj4String type="QString">+proj=tmerc +lat_0=0 +lon_0=9 +k=1 +x_0=3500000 +y_0=0 +ellps=bessel +towgs84=582,105,414,1.04,0.35,-3.08,8.3 +units=m +no_defs</ProjectCRSProj4String>
-            <ProjectCrs type="QString">EPSG:31467</ProjectCrs>
-            <ProjectCRSID type="int">2647</ProjectCRSID>
-            <ProjectionsEnabled type="int">0</ProjectionsEnabled>
-        </SpatialRefSys>
-        <Paths>
-            <Absolute type="bool">false</Absolute>
-        </Paths>
-        <Gui>
-            <SelectionColorBluePart type="int">0</SelectionColorBluePart>
-            <CanvasColorGreenPart type="int">255</CanvasColorGreenPart>
-            <CanvasColorRedPart type="int">255</CanvasColorRedPart>
-            <SelectionColorRedPart type="int">255</SelectionColorRedPart>
-            <SelectionColorAlphaPart type="int">255</SelectionColorAlphaPart>
-            <SelectionColorGreenPart type="int">255</SelectionColorGreenPart>
-            <CanvasColorBluePart type="int">255</CanvasColorBluePart>
-        </Gui>
-        <WMSContactMail type="QString"></WMSContactMail>
-        <WFSLayers type="QStringList"/>
-        <PositionPrecision>
-            <DecimalPlaces type="int">2</DecimalPlaces>
-            <Automatic type="bool">true</Automatic>
-        </PositionPrecision>
-        <WMSAddWktGeometry type="bool">false</WMSAddWktGeometry>
-        <WMSContactOrganization type="QString"></WMSContactOrganization>
-        <WMSServiceCapabilities type="bool">false</WMSServiceCapabilities>
-        <WMSServiceTitle type="QString"></WMSServiceTitle>
-    </properties>
+    <abstract></abstract>
+    <links/>
+    <author></author>
+    <creation></creation>
+  </projectMetadata>
+  <Annotations/>
+  <Layouts/>
 </qgis>

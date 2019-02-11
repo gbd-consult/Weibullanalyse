@@ -19,11 +19,11 @@
  ***************************************************************************/
 """
 
-from PyQt4.QtCore import *
-from PyQt4.QtGui import *
+from PyQt5.QtWidgets import QDockWidget
+from PyQt5.QtCore import Qt
 from qgis.core import *
 
-from weibullanalysedialog import ValueWidget
+from .weibullanalysedialog import ValueWidget
 
 # initialize Qt resources from file resouces.py
 # import resources
@@ -41,7 +41,7 @@ class ValueTool:
         self.valuedockwidget=QDockWidget("Weibullanalyse Tool" , self.iface.mainWindow() )
         self.valuedockwidget.setObjectName("Weibullanalyse Tool")
         self.valuedockwidget.setWidget(self.valuewidget)
-        QObject.connect(self.valuedockwidget, SIGNAL('visibilityChanged ( bool )'), self.valuewidget.changeActive)
+        self.valuedockwidget.visibilityChanged.connect(self.valuewidget.changeActive)
     
         # add the dockwidget to iface
         self.iface.addDockWidget(Qt.LeftDockWidgetArea,self.valuedockwidget)

@@ -26,12 +26,12 @@ import logging
 # Ändere den Level zurück auf logging.WARNING(default) vor dem Release
 logging.basicConfig(level=logging.WARNING)
 
-from PyQt4 import QtCore, QtGui
-from PyQt4.QtCore import *
-from PyQt4.QtGui import *
+from PyQt5.QtWidgets import QWidget, QLabel, QSizePolicy, QTableWidgetItem, QFileDialog
+from PyQt5.QtCore import Qt
+
 from qgis.core import *
 from qgis.gui import *
-from ui_weibullanalyse import Ui_ValueWidgetBase
+from .ui_weibullanalyse import Ui_ValueWidgetBase
 
 # für die Berechung des Mittelwertes
 from qgis.analysis import QgsZonalStatistics
@@ -79,7 +79,6 @@ class ValueWidget(QWidget, Ui_ValueWidgetBase):
         
         self.iface=iface
         self.canvas=self.iface.mapCanvas()
-        self.legend=self.iface.legendInterface()
         self.logger = logging.getLogger('.'.join((__name__, 
                                         self.__class__.__name__)))
                                         
@@ -87,19 +86,19 @@ class ValueWidget(QWidget, Ui_ValueWidgetBase):
         self.setupUi(self)
         self.setupUi_extra()
 
-        QObject.connect(self.cbxActive,SIGNAL("stateChanged(int)"),self.changeActive)
-        QObject.connect(self.cbxGraph,SIGNAL("stateChanged(int)"),self.changePage) 
-        QObject.connect(self.canvas, SIGNAL( "keyPressed( QKeyEvent * )" ), self.pauseAnzeige )
-        QObject.connect(self.canvas, SIGNAL( "keyPressed( QKeyEvent * )" ), self.pauseGraph )
-        QObject.connect(self.canvas, SIGNAL( "keyPressed( QKeyEvent * )" ), self.printWeibull )
-        QObject.connect(self.buttonSaveAs, SIGNAL("clicked()"), self.savePNG)
+        self.cbxActive.stateChanged.connect(self.changeActive)
+        self.cbxGraph.stateChanged.connect(self.changePage)
+        self.canvas.keyPressed.connect(self.pauseAnzeige)
+        self.canvas.keyPressed.connect(self.pauseGraph)
+        self.canvas.keyPressed.connect(self.printWeibull)
+        self.buttonSaveAs.clicked.connect(self.savePNG)
 
         # WeibullTool MapTool
         self.weibullTool = QgsMapToolEmitPoint(self.canvas)
 
         # connect layer list in plugin combobox 
-        QObject.connect(QgsMapLayerRegistry.instance(), SIGNAL("layerWasAdded(QgsMapLayer *)"), self.add_layer)
-        QObject.connect(QgsMapLayerRegistry.instance(), SIGNAL("layerWillBeRemoved(QString)"), self.remove_layer)
+        QgsProject.instance().layerWasAdded.connect(self.add_layer)
+        QgsProject.instance().layerWillBeRemoved.connect(self.remove_layer)
         
         # Lade Rasterlayer in die Combobox
         self.initRasterLayerCombobox( self.InRastC, 'key_of_default_layer' )
@@ -121,7 +120,7 @@ class ValueWidget(QWidget, Ui_ValueWidgetBase):
         self.initRasterLayerCombobox( self.InRastZ, self.InRastZ.currentText() )    
     
     def remove_layer(self, layerid):
-        layer = QgsMapLayerRegistry.instance().mapLayer(layerid)
+        layer = QgsProject.instance().mapLayer(layerid)
         self.InRastC.removeItem( self.InRastC.findData( layer.name() ) )
         self.InRastK.removeItem( self.InRastK.findData( layer.name() ) )
         self.InRastW.removeItem( self.InRastW.findData( layer.name() ) )
@@ -153,9 +152,9 @@ class ValueWidget(QWidget, Ui_ValueWidgetBase):
             self.mplPlot = self.pltCanvas
             self.mplPlot.setVisible(False)
         else:
-            self.mplPlot = QtGui.QLabel("Need matplotlib >= 1.0 !")
+            self.mplPlot = QLabel("Need matplotlib >= 1.0 !")
 
-        sizePolicy = QtGui.QSizePolicy(QtGui.QSizePolicy.Expanding,QtGui.QSizePolicy.Expanding)
+        sizePolicy = QSizePolicy(QSizePolicy.Expanding,QSizePolicy.Expanding)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
         sizePolicy.setHeightForWidth(self.mplPlot.sizePolicy().hasHeightForWidth())
@@ -186,8 +185,8 @@ class ValueWidget(QWidget, Ui_ValueWidgetBase):
     # Deaktiviere wieder die Anzeige Start/Stop Auswahl, wenn Shift-A gedrückt wird
     def disconnect(self):
         self.changeActive()
-        QObject.disconnect(self.canvas, SIGNAL( "keyPressed( QKeyEvent * )" ), self.pauseAnzeige )
-        QObject.disconnect(self.canvas, SIGNAL( "keyPressed( QKeyEvent * )" ), self.pauseGraph )
+        self.canvas.keyPressed.disconnect(self.pauseAnzeige)
+        self.canvas.keyPressed.disconnect(self.pauseGraph)
         
     # Switche die Anzeige Start/Stop Auswahl, wenn Shift-A gedrückt wird
     def pauseAnzeige(self, e):
@@ -210,11 +209,11 @@ class ValueWidget(QWidget, Ui_ValueWidgetBase):
             return True
         return False
 
-    # Return QgsMapLayer.RasterLayer (only gdal) from a layer name ( as string )
+    # Return QgsProject.RasterLayer (only gdal) from a layer name ( as string )
     def initRasterLayerCombobox(self, combobox, layerid):
         combobox.clear()
-        reg = QgsMapLayerRegistry.instance()
-        for ( key, layer ) in reg.mapLayers().iteritems():
+        reg = QgsProject.instance()
+        for ( key, layer ) in reg.mapLayers().items():
             if layer.type() == QgsMapLayer.RasterLayer: combobox.addItem( layer.name(), key )
          
         idx = combobox.findData( layerid )
@@ -223,8 +222,8 @@ class ValueWidget(QWidget, Ui_ValueWidgetBase):
 
     # Hole Liste geladener Rasterlayer
     def getRasterLayerByName( self,  myName ):
-        layerMap = QgsMapLayerRegistry.instance().mapLayers()
-        for name, layer in layerMap.iteritems():
+        layerMap = QgsProject.instance().mapLayers()
+        for name, layer in layerMap.items():
             if layer.type() == QgsMapLayer.RasterLayer and layer.name() == myName:
                 if layer.isValid():
                     return layer
@@ -247,13 +246,16 @@ class ValueWidget(QWidget, Ui_ValueWidgetBase):
     # toggle the weibullTool
     def changeActive(self):
         if self.cbxActive.isChecked():
-            QObject.connect(self.canvas, SIGNAL( "layersChanged ()" ), self.invalidatePlot )
+            self.canvas.layersChanged.connect(self.invalidatePlot)
             self.canvas.setMapTool(self.weibullTool)
             self.weibullTool.canvasClicked.connect(self.listen_xCoordinates)
             self.weibullTool.canvasClicked.connect(self.listen_yCoordinates)
             self.weibullTool.canvasClicked.connect(self.printValue)
         else:
-            QObject.disconnect(self.canvas, SIGNAL( "layersChanged ()" ), self.invalidatePlot )
+            try:
+                self.canvas.layersChanged.disconnect(self.invalidatePlot)
+            except:
+                pass
             self.canvas.unsetMapTool(self.weibullTool)
                 
     # Gebe X-Koordinate aus und überschreibe vorherige (append ergänzt)
@@ -272,7 +274,7 @@ class ValueWidget(QWidget, Ui_ValueWidgetBase):
 
     # Wert an Mausposition
     def sampleRaster20(self, layer, x, y):
-        ident = layer.dataProvider().identify(QgsPoint(x,y), QgsRaster.IdentifyFormatValue ).results()
+        ident = layer.dataProvider().identify(QgsPointXY(x,y), QgsRaster.IdentifyFormatValue ).results()
         return ident[1]
             
     # Frage Wert für die Rasterlayer an Mouseposition ab
@@ -314,7 +316,7 @@ class ValueWidget(QWidget, Ui_ValueWidgetBase):
         self.ymin=1e38
         self.ymax=-1e38
 
-        mapCanvasSrs = self.iface.mapCanvas().mapRenderer().destinationCrs()
+        mapCanvasSrs = self.iface.mapCanvas().mapSettings().destinationCrs()
 
         # TODO - calculate the min/max values only once, instead of every time!!!
         # keep them in a dict() with key=layer.id()
@@ -326,13 +328,13 @@ class ValueWidget(QWidget, Ui_ValueWidgetBase):
 
             # if given no position, get dummy values
             if position is None:
-                pos = QgsPoint(0,0)
+                pos = QgsPointXY(0,0)
             # transform points if needed
-            elif not mapCanvasSrs == layerCrs and self.iface.mapCanvas().hasCrsTransformEnabled():
-                srsTransform = QgsCoordinateTransform(mapCanvasSrs, layerCrs)
+            elif not mapCanvasSrs == layerCrs:
+                srsTransform = QgsCoordinateTransform(mapCanvasSrs, layerCrs, QgsProject.instance())
                 try:
                     pos = srsTransform.transform(position)
-                except QgsCsException, err:
+                except (QgsCsException, err):
                     # ignore transformation errors
                     continue
 
@@ -350,14 +352,14 @@ class ValueWidget(QWidget, Ui_ValueWidgetBase):
                     for iband in range(1,layer.bandCount()+1):
                         ident[iband] = str(self.tr('out of extent'))
                 # we can only use context if layer is not projected
-                elif canvas.hasCrsTransformEnabled() and layer.dataProvider().crs() != canvas.mapRenderer().destinationCrs():
+                elif layer.dataProvider().crs() != canvas.mapSettings().destinationCrs():
                     ident = layer.dataProvider().identify(pos, QgsRaster.IdentifyFormatValue ).results()
                 else:
                     extent = canvas.extent()
                     width = round(extent.width() / canvas.mapUnitsPerPixel());
                     height = round(extent.height() / canvas.mapUnitsPerPixel());
                     
-                    extent = canvas.mapRenderer().mapToLayerCoordinates( layer, extent );
+                    extent = canvas.mapSettings().mapToLayerCoordinates( layer, extent );
 
                     ident = layer.dataProvider().identify(pos, QgsRaster.IdentifyFormatValue, canvas.extent(), width, height ).results()
                 if not len( ident ) > 0:
@@ -373,7 +375,7 @@ class ValueWidget(QWidget, Ui_ValueWidgetBase):
                     if ident is not None and len(ident)>1:
                         layernamewithband+=' '+layer.bandName(iband)
 
-                    if not ident or not ident.has_key( iband ): # should not happen
+                    if not ident or not iband in ident: # should not happen
                         bandvalue = "?"
                     else:                  
                         bandvalue = ident[iband]
@@ -401,8 +403,8 @@ class ValueWidget(QWidget, Ui_ValueWidgetBase):
 
     # get cached statistics for layer and band or None if not calculated
     def getStats ( self, layer, bandNo, force = False ):
-        if self.stats.has_key( layer ):
-            if self.stats[layer].has_key( bandNo ) : 
+        if layer in self.stats:
+            if bandNo in self.stats[layer]:
                 return self.stats[layer][bandNo]
         else:
             self.stats[layer] = {}
@@ -431,20 +433,21 @@ class ValueWidget(QWidget, Ui_ValueWidgetBase):
 
     def meanBuffer(self):
         # leeren Memorylayer erzeugen als UTM32N KBS für den Puffer z0 um die Mousepoition
-        vpoly = QgsVectorLayer("Polygon?crs=epsg:32632",  "pointbuffer", "memory")
+        mapCanvasSrs = self.iface.mapCanvas().mapSettings().destinationCrs().authid()
+        vpoly = QgsVectorLayer("Polygon?crs=%s" % mapCanvasSrs,  "pointbuffer", "memory")
         feature = QgsFeature()
-        feature.setGeometry(QgsGeometry.fromPoint(QgsPoint(self.xCoord, self.yCoord)).buffer(self.bufferz0.value(),5))
+        feature.setGeometry(QgsGeometry.fromPointXY(QgsPointXY(self.xCoord, self.yCoord)).buffer(self.bufferz0.value(),5))
         provider = vpoly.dataProvider()
         provider.addFeatures( [feature] )
         vpoly.commitChanges()
-        stats = QgsZonalStatistics(vpoly, self.getRasterLayerByName( self.InRastZ.currentText() ).source())
+        stats = QgsZonalStatistics(vpoly, self.getRasterLayerByName(self.InRastZ.currentText()), '', 1)
         stats.calculateStatistics(None)
-        allAttrs = provider.attributeIndexes()       
+        allAttrs = provider.attributeIndexes()
         for feature in vpoly.getFeatures():
             mean_value = feature.attributes()[2]
             return mean_value
 
-    # Gebe Rasterwerte als Weibullkurve aus 
+    # Gebe Rasterwerte als Weibullkurve aus
     def plot(self):
     
         # Variable initialisieren
@@ -459,43 +462,40 @@ class ValueWidget(QWidget, Ui_ValueWidgetBase):
             k = float(self.sampleRaster(self.InRastK.currentText(), self.xCoord, self.yCoord))/1000
             # mittlere Rauhigkeit (Mittelwerte auf Basis des angegebenen Radius)
             z0 = self.meanBuffer()
-        except ValueError:
-            self.iface.messageBar().pushMessage("Weibullauswertung: Fehler", 
-            "Mindestens ein Layer ausserhalb des Abfragebereichs! Passen Layer KBS zueinander?",  
-            level=QgsMessageBar.CRITICAL, duration=2)
-        except TypeError:
-            self.iface.messageBar().pushMessage("Weibullauswertung: Fehler", 
-            "Mindestens ein Layer ausserhalb des Abfragebereichs! Passen Layer KBS zueinander?",  
-            level=QgsMessageBar.CRITICAL)
+            #Haeufigkeit aus der Weibull-Dichtefunktion durch Integration
+            if c > 0:
+                try:
+                    y = lambda x: k/c*(x/c)**(k-1)*numpy.exp(-(x/c)**k)
+                    rh=integrate.romberg(y,0.,1.0)      
+                    rh=round(rh*100,1)          
+                    # Weibull Dichte Funktion fur Grafik
+                    def f(x):        
+                        return k/c*(x/c)**(k-1)*numpy.exp(-(x/c)**k)
+                    X = numpy.linspace(0, 12, 1200)
+                    Y = f(X)
             
-        #Haeufigkeit aus der Weibull-Dichtefunktion durch Integration
-        if c > 0:
-            try:
-                y = lambda x: k/c*(x/c)**(k-1)*numpy.exp(-(x/c)**k)
-                rh=integrate.romberg(y,0.,1.0)      
-                rh=round(rh*100,1)          
-                # Weibull Dichte Funktion fur Grafik
-                def f(x):        
-                    return k/c*(x/c)**(k-1)*numpy.exp(-(x/c)**k)
-                X = numpy.linspace(0, 12, 1200)
-                Y = f(X)
-        
-                # Plot Rahmen Beschriftungen etc
-                self.mplPlt.clear()
-                self.mplPlt.grid()
-                self.mplPlt.plot(X, Y, linewidth=3, label=None)
-                self.mplPlt.set_ylim(0,0.36)
-            
-                #Beschriftungen in der Grafik, Startposition uber Wertepaar
-                self.mplPlt.text(2, 0.34, unicode("rel. H\344ufigkeit < 1 m/s = %.2f" %(rh,), 'latin-1'), fontsize=10)
-                self.mplPlt.text(8.9, 0.34, unicode('\045', 'latin-1'), fontsize=10)
-                self.mplPlt.text(2, 0.315, "mittlere Windgeschwindigkeit = %.2f [m/s]" %(w,), fontdict=None, fontsize=10)
-                self.mplPlt.text(2, 0.29, unicode("mittlere Rauhigkeitsl\344nge = %.2f [m]"%(z0,), 'latin-1'),  fontsize=10)
-                self.mplFig.canvas.draw()
+                    # Plot Rahmen Beschriftungen etc
+                    self.mplPlt.clear()
+                    self.mplPlt.grid()
+                    self.mplPlt.plot(X, Y, linewidth=3, label=None)
+                    self.mplPlt.set_ylim(0,0.36)
                 
-            except ZeroDivisionError:
-                self.iface.messageBar().pushMessage("Weibullauswertung: Fehler", 
-                "Division mit 0 nicht erlaubt. Falsche Layerzuordnung?",  level=QgsMessageBar.CRITICAL)
+                    #Beschriftungen in der Grafik, Startposition uber Wertepaar
+                    self.mplPlt.text(2, 0.34, u'rel. Häufigkeit < 1 m/s = %.2f %%' % rh, fontsize=10)
+                    self.mplPlt.text(2, 0.315, "mittlere Windgeschwindigkeit = %.2f [m/s]" % w, fontdict=None, fontsize=10)
+                    self.mplPlt.text(2, 0.29, u'mittlere Rauhigkeitslänge = %.2f [m]' % z0,  fontsize=10)
+                    self.mplFig.canvas.draw()
+                    
+                except ZeroDivisionError:
+                    self.iface.messageBar().pushCritical("Weibullauswertung: Fehler", 
+                    "Division mit 0 nicht erlaubt. Falsche Layerzuordnung?")
+        except ValueError:
+            self.iface.messageBar().pushCritical("Weibullauswertung: Fehler", 
+            "Mindestens ein Layer ausserhalb des Abfragebereichs! Passen Layer KBS zueinander?")
+        except TypeError:
+            self.iface.messageBar().pushCritical("Weibullauswertung: Fehler", 
+            "Mindestens ein Layer ausserhalb des Abfragebereichs! Passen Layer KBS zueinander?")
+            
       
     # taken from valuetool plugin
     def invalidatePlot(self,replot=True):
@@ -544,35 +544,35 @@ class ValueWidget(QWidget, Ui_ValueWidgetBase):
                            self.tr( "Bitte Standortnamen eintragen" ) )
         else:
             self.standortname = self.dataName.text()  
-            self.fileName = QFileDialog.getSaveFileName(self.iface.mainWindow(), "Save As", self.standortname + ".png","Portable Network Graphics (*.png)")
-    
-        # Plot Rahmen Beschriftungen etc   
-        plt.figure().set_size_inches(7,7)  
-        plt.axes().set_aspect('44')
-        plt.plot(X, Y, linewidth=3, label=None)
-        plt.title("%s"%(self.standortname,), fontsize=18)
-        plt.xlabel("Geschwindigkeit [m/s]", fontsize=18)
-        plt.ylabel((unicode('relative H\344ufigkeit', 'latin-1')), fontsize=18)
-        plt.ylim(0,0.36)       
-        plt.xlim(0,16)
+            (self.fileName, extension) = QFileDialog.getSaveFileName(self.iface.mainWindow(), "Save As", self.standortname + ".png","Portable Network Graphics (*.png)")
 
-        #Beschriftungen in der Grafik, Startposition uber Wertepaar
-        plt.text(5, 0.305, "Statistische Parameter:",  fontsize=14)
-        plt.text(5, 0.285, unicode('rel. H\344ufigkeit < 1 m/s = %.2f'%(rh,), 'latin-1'))
-        plt.text(12.7, 0.285, unicode('\045', 'latin-1'))
-        plt.text(5, 0.27, "mittl. Windgeschwindigkeit = %.2f [m/s]"%(w,), fontdict=None)
-        plt.text(5, 0.255, unicode("mittl. Rauhigkeitsl\344nge = %.2f [m]"%(z0,), 'latin-1'))
+        if self.fileName:
+            # Plot Rahmen Beschriftungen etc   
+            plt.figure().set_size_inches(7,7)  
+            plt.axes().set_aspect('44')
+            plt.plot(X, Y, linewidth=3, label=None)
+            plt.title("%s" % self.standortname, fontsize=18)
+            plt.xlabel("Geschwindigkeit [m/s]", fontsize=18)
+            plt.ylabel(u'relative Häufigkeit', fontsize=18)
+            plt.ylim(0,0.36)       
+            plt.xlim(0,16)
 
-        # Plot vertikale Beschriftung mit Koordinaten
-        plt.text(16.2, 0.325, '$\copyright$ ArguSoft', rotation=90)
-        plt.text(16.2, 0.18, "Weibull %d / %d"%(self.yCoord,self.xCoord), rotation=90)
-   
-        # Gitter anzeigen und Plot erstellen zum Abspeichern
-        plt.grid(True)
-        
-        # Weibullkurve speichern
-        plt.savefig(self.fileName, dpi=300, facecolor='0.9', edgecolor='w',
-        orientation='portrait', papertype=None, format='png',
-        transparent=False, bbox_inches=None, pad_inches=0.1)
+            #Beschriftungen in der Grafik, Startposition uber Wertepaar
+            plt.text(5, 0.305, "Statistische Parameter:",  fontsize=14)
+            plt.text(5, 0.285, u'rel. Häufigkeit < 1 m/s = %.2f %%' % rh )
+            plt.text(5, 0.27, "mittl. Windgeschwindigkeit = %.2f [m/s]" % w, fontdict=None)
+            plt.text(5, 0.255, u'mittl. Rauhigkeitslänge = %.2f [m]' % z0)
+
+            # Plot vertikale Beschriftung mit Koordinaten
+            plt.text(16.2, 0.325, '$\copyright$ ArguSoft', rotation=90)
+            plt.text(16.2, 0.18, "Weibull %d / %d"%(self.yCoord,self.xCoord), rotation=90)
+       
+            # Gitter anzeigen und Plot erstellen zum Abspeichern
+            plt.grid(True)
+            
+            # Weibullkurve speichern
+            plt.savefig(self.fileName, dpi=300, facecolor='0.9', edgecolor='w',
+            orientation='portrait', papertype=None, format='png',
+            transparent=False, bbox_inches=None, pad_inches=0.1)
 
 
