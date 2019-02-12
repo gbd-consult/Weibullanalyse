@@ -19,7 +19,8 @@
  ***************************************************************************/
 """
 
-from PyQt5.QtWidgets import QDockWidget
+from PyQt5.QtWidgets import QDockWidget, QAction
+from PyQt5.QtGui import QIcon
 from PyQt5.QtCore import Qt
 from qgis.core import *
 
@@ -42,9 +43,26 @@ class ValueTool:
         self.valuedockwidget.setObjectName("Weibullanalyse Tool")
         self.valuedockwidget.setWidget(self.valuewidget)
         self.valuedockwidget.visibilityChanged.connect(self.valuewidget.changeActive)
+        self.valuedockwidget.setVisible(True)
     
         # add the dockwidget to iface
         self.iface.addDockWidget(Qt.LeftDockWidgetArea,self.valuedockwidget)
+
+        # add action to menu
+        self.action = QAction("Weibullanalyse Tool",parent=self.iface.mainWindow())
+        self.iface.addPluginToMenu("Argusoft", self.action)
+        self.action.setCheckable(True)
+        self.action.setEnabled(True)
+        self.action.setChecked(True)
+        self.action.toggled.connect(self.toggleWidget)
+
+
+    def toggleWidget(self, state):
+        if state:
+            self.valuedockwidget.setVisible(True)
+        else:
+            self.valuedockwidget.setVisible(False)
+
 
     #Qt.AllDockWidgetAreas
     def unload(self):
@@ -53,3 +71,4 @@ class ValueTool:
         # remove the dockwidget from iface
         self.iface.removeDockWidget(self.valuedockwidget)
         # remove the plugin menu item and icon
+        self.iface.removePluginMenu("Argusoft", self.action)
