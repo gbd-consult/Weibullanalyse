@@ -481,9 +481,9 @@ class ValueWidget(QWidget, Ui_ValueWidgetBase):
                     self.mplPlt.set_ylim(0,0.36)
                 
                     #Beschriftungen in der Grafik, Startposition uber Wertepaar
-                    self.mplPlt.text(2, 0.34, u'rel. Häufigkeit < 1 m/s = %.2f %%' % rh, fontsize=10)
-                    self.mplPlt.text(2, 0.315, "mittlere Windgeschwindigkeit = %.2f [m/s]" % w, fontdict=None, fontsize=10)
-                    self.mplPlt.text(2, 0.29, u'mittlere Rauhigkeitslänge = %.2f [m]' % z0,  fontsize=10)
+                    self.mplPlt.text(2, 0.34, u'rel. Häufigkeit < 1 m/s = %.2f %%' % rh, fontsize=8)
+                    self.mplPlt.text(2, 0.315, "mittlere Windgeschwindigkeit = %.2f [m/s]" % w, fontdict=None, fontsize=8)
+                    self.mplPlt.text(2, 0.29, u'mittlere Rauhigkeitslänge = %.2f [m]' % z0,  fontsize=8)
                     self.mplFig.canvas.draw()
                     
                 except ZeroDivisionError:
