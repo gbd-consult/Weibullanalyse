@@ -50,7 +50,7 @@ class ValueTool:
 
         # add action to menu
         self.action = QAction("Weibullanalyse Tool",parent=self.iface.mainWindow())
-        self.iface.addPluginToMenu("Argusoft", self.action)
+        self.iface.addPluginToRasterMenu("Argusoft", self.action)
         self.action.setCheckable(True)
         self.action.setEnabled(True)
         self.action.setChecked(True)

@@ -37,7 +37,8 @@ from .ui_weibullanalyse import Ui_ValueWidgetBase
 from qgis.analysis import QgsZonalStatistics
 
 # Testen, ob matplotlib >= 1.0
-hasmpl=True
+hasmpl = True
+hasscipy = True
 try:
     import matplotlib
     import matplotlib.pyplot as plt
