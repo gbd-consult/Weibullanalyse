@@ -575,7 +575,7 @@ class ValueWidget(QWidget, Ui_ValueWidgetBase):
                 plt.text(5, 0.255, u'mittl. Rauhigkeitslänge = %.2f [m]' % z0)
 
                 # Plot vertikale Beschriftung mit Koordinaten
-                plt.text(16.2, 0.325, '$\copyright$ ArguSoft', rotation=90)
+                plt.text(16.2, 0.325, '$\copyright$ argusim', rotation=90)
                 plt.text(16.2, 0.18, "Weibull %d / %d"%(self.yCoord,self.xCoord), rotation=90)
 
                 # Gitter anzeigen und Plot erstellen zum Abspeichern

@@ -50,7 +50,7 @@ class ValueTool:
 
         # add action to menu
         self.action = QAction("Weibullanalyse Tool",parent=self.iface.mainWindow())
-        self.iface.addPluginToRasterMenu("Argusoft", self.action)
+        self.iface.addPluginToRasterMenu("argusim", self.action)
         self.action.setCheckable(True)
         self.action.setEnabled(True)
         self.action.setChecked(True)
@@ -71,4 +71,4 @@ class ValueTool:
         # remove the dockwidget from iface
         self.iface.removeDockWidget(self.valuedockwidget)
         # remove the plugin menu item and icon
-        self.iface.removePluginMenu("Argusoft", self.action)
+        self.iface.removePluginMenu("argusim", self.action)
