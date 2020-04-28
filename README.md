@@ -16,7 +16,7 @@ Das Ergebnis der Analyse kann als Weilbullkurve dargestellt und als Bild abgespe
 Benutzerhandbuch
 ----------------
 
-Das Plugin wird über das Plugin Repository des Geoinformatikbüro Dassau GmbH bereitgestellt. Es wird vorausgesetzt, dass Scipy https://www.scipy.org/ installiert ist. Unter Debian/Ubuntu kann das stattfinden mit:
+Das Plugin wird über das Plugin Repository des Geoinformatikbüro Dassau GmbH https://plugins.gbd-consult.de bereitgestellt. Es wird vorausgesetzt, dass Scipy https://www.scipy.org/ installiert ist. Unter Debian/Ubuntu kann das stattfinden mit:
 
     sudo apt-get install python3-scipy
 
