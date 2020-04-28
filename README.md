@@ -20,9 +20,9 @@ Das Plugin wird über das Plugin Repository des Geoinformatikbüro Dassau GmbH h
 
 <img src="/images/repodetails.png" width="300">
 
-Das Plugin selbst ist ein Dock Widget. Man kann es über das Menü Settings -> Panels laden.
+Das Plugin selbst ist ein Dock Widget. Man kann es über das Menü Ansicht -> Bedienfelder laden.
 
-Die interaktive Abfrage von Koordinaten und Werten kann mit dem Kontrollkästchen Start/Stop unterbrochen werden oder indem man z.B. auf die TAB Taste klickt. Dadurch wird der aktuelle Stand eingefroren.
+Die interaktive Abfrage von Koordinaten und Werten kann mit dem Kontrollkästchen Start/Stop unterbrochen werden oder indem man z.B. auf die TAB Taste klickt. Dadurch wird der aktuelle Stand eingefroren. Über das Kontrollkästchen Weibull können Sie entscheiden, ob die Werte der Eingangsdaten tabellarisch angezeigt werden, oder ob eine Weibullkurve auf Basis der Eingangsdaten gezeichnet wird. Über den Parameter Radius z0 können Sie festlegen, wie in welchem Radius um die abgefragte Koordinate Eingangsdaten für die Analyse verwendet werden sollen.
 
 <img src="/images/weibull_blank.png" width="300">
 
