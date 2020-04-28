@@ -4,29 +4,21 @@ Weibullanalyse
 Plugin für die Bewertung von Windenergiestandorten
 --------------------------------------------------
 
+Das Plugin führt eine Bewertung von Windenergiestandorten auf Basis einer Weibullfunktion durch. Als Eingabewerte dienen die Weibullparameter c, w und k sowie die Rauhigkeit z0. Die Werte müssen als Rasterdaten aufbereitet sein. Einen Beispieldatensatz mit einem QGIS Projekt finden Sie im Ordner testdaten. 
 
-Dieses Plugin generiert eine standortbezogene Weilbullkurve, welche zum Beispiel zur Bewertung von Windenergiestandorten dienen kann. Anhand einer Analyse der Weilbullparameter c,w und k und einem Rauhigkeitslayer wird die Weilbullkurve erstellt. Die Wahl des Standorts kann über die Eingabe von Koordinatenwerten oder über die Wahl in der Karte erfolgen. Der Radius ist frei wählbar.
+Die Wahl des Standorts kann über die Eingabe von Koordinatenwerten oder per Mausklick in der Karte erfolgen. Der Radius ist frei wählbar.
 
-Das Ergebnis der Analyse kann in Form einer Weilbullkurve dargestellt und abgespeichert werden.
-![image](https://github.com/gbd-consult/Weibullanalyse/images/weibull_result.png?raw=true)
+Das Ergebnis der Analyse kann als Weilbullkurve dargestellt und als Bild abgespeichert werden.
 
+<img src="/images/weibull_result.png" width="300">
 
 
 Benutzerhandbuch
 ----------------
 
-Vor der Benutzung muss ein Python3 Paket mit folgendem Befehl installiert werden:
-
-# git clone git@github.com:dassau/Weibullanalyse.git ???
-# cd Weibullanalyse
-# make clean
-# make
-# make dclean
-# make deploy
+Das Plugin wird über das Plugin Repository des Geoinformatikbüro Dassau GmbH bereitgestellt. Es wird vorausgesetzt, dass Scipy https://www.scipy.org/ installiert ist. Unter Debian/Ubuntu kann das stattfinden mit:
 
     sudo apt-get install python3-scipy
-
-    Ausführliche Informationen zu diesem Paket befinden sich auf: *https://www.scipy.org/*
 
 Starten Sie nun QGIS und öffnen das gewünschte Projekt (das Testprojekt aus dem Ordner testdaten).
 
@@ -34,10 +26,7 @@ Das Plugin selbst ist ein Dock Widget. Man kann es über das Menü Settings -> P
 
 Wie beim ValueTool kann man die interaktive Abfrage von Koordinaten und Werten stoppen, indem man z.B. auf die TAB Taste klickt. Dadurch wird der aktuelle Stand eingefroren.
 
-![image](https://github.com/gbd-consult/Weibullanalyse/images/weibull_blank.png?raw=true)
-
-
-
+<img src="/images/weibull_blank.png" width="300">
 
 ## License
 
