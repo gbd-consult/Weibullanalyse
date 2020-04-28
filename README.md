@@ -16,20 +16,17 @@ Das Ergebnis der Analyse kann als Weilbullkurve dargestellt und als Bild abgespe
 Benutzerhandbuch
 ----------------
 
-Das Plugin wird über das Plugin Repository des Geoinformatikbüro Dassau GmbH https://plugins.gbd-consult.de bereitgestellt. Es wird vorausgesetzt, dass Scipy https://www.scipy.org/ installiert ist. Unter Debian/Ubuntu kann das stattfinden mit:
+Das Plugin wird über das Plugin Repository des Geoinformatikbüro Dassau GmbH https://plugins.gbd-consult.de bereitgestellt. Die können das Repository über den QGIS Pluginmanager einbinden. 
 
-    sudo apt-get install python3-scipy
-
-Starten Sie nun QGIS und öffnen das gewünschte Projekt (das Testprojekt aus dem Ordner testdaten).
+<img src="/images/repodetails.png" width="300">
 
 Das Plugin selbst ist ein Dock Widget. Man kann es über das Menü Settings -> Panels laden.
 
-Wie beim ValueTool kann man die interaktive Abfrage von Koordinaten und Werten stoppen, indem man z.B. auf die TAB Taste klickt. Dadurch wird der aktuelle Stand eingefroren.
+Die interaktive Abfrage von Koordinaten und Werten kann mit dem Kontrollkästchen Start/Stop unterbrochen werden oder indem man z.B. auf die TAB Taste klickt. Dadurch wird der aktuelle Stand eingefroren.
 
 <img src="/images/weibull_blank.png" width="300">
 
-## License
+## Lizenz
 
-This program is free software; you can redistribute it and/or modify it under the terms of the
-GNU General Public License as published by the Free Software Foundation; either version 2 of the
-License, or (at your option) any later version.
+Dieses Programm ist freie Software (GPL v2). Sie können es unter den Bedingungen der [GNU General Public License](./LICENSE), 
+weitergeben und/oder ändern, entweder unter der Version 2 oder einer späteren Version.
