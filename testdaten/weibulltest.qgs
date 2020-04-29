@@ -1,5 +1,5 @@
 <!DOCTYPE qgis PUBLIC 'http://mrcc.com/qgis.dtd' 'SYSTEM'>
-<qgis projectname="" version="3.4.4-Madeira">
+<qgis version="3.10.5-A Coruña" projectname="">
   <homePath path=""/>
   <title></title>
   <autotransaction active="0"/>
@@ -7,6 +7,7 @@
   <trust active="0"/>
   <projectCrs>
     <spatialrefsys>
+      <wkt>PROJCS["DHDN / 3-degree Gauss-Kruger zone 3",GEOGCS["DHDN",DATUM["Deutsches_Hauptdreiecksnetz",SPHEROID["Bessel 1841",6377397.155,299.1528128,AUTHORITY["EPSG","7004"]],TOWGS84[598.1,73.7,418.2,0.202,0.045,-2.455,6.7],AUTHORITY["EPSG","6314"]],PRIMEM["Greenwich",0,AUTHORITY["EPSG","8901"]],UNIT["degree",0.0174532925199433,AUTHORITY["EPSG","9122"]],AUTHORITY["EPSG","4314"]],PROJECTION["Transverse_Mercator"],PARAMETER["latitude_of_origin",0],PARAMETER["central_meridian",9],PARAMETER["scale_factor",1],PARAMETER["false_easting",3500000],PARAMETER["false_northing",0],UNIT["metre",1,AUTHORITY["EPSG","9001"]],AUTHORITY["EPSG","31467"]]</wkt>
       <proj4>+proj=tmerc +lat_0=0 +lon_0=9 +k=1 +x_0=3500000 +y_0=0 +ellps=bessel +towgs84=598.1,73.7,418.2,0.202,0.045,-2.455,6.7 +units=m +no_defs</proj4>
       <srsid>2647</srsid>
       <srid>31467</srid>
@@ -19,22 +20,22 @@
   </projectCrs>
   <layer-tree-group>
     <customproperties/>
-    <layer-tree-layer checked="Qt::Checked" name="standort_test" id="standort_test20130331092958849" expanded="0" source="./standort_test.shp" providerKey="ogr">
+    <layer-tree-layer id="standort_test20130331092958849" source="./standort_test.shp" name="standort_test" providerKey="ogr" legend_exp="" expanded="0" checked="Qt::Checked">
       <customproperties/>
     </layer-tree-layer>
-    <layer-tree-layer checked="Qt::Checked" name="dwd_stationen_test" id="dwd_stationen_test20130331092958700" expanded="0" source="./dwd_stationen_test.shp" providerKey="ogr">
+    <layer-tree-layer id="dwd_stationen_test20130331092958700" source="./dwd_stationen_test.shp" name="dwd_stationen_test" providerKey="ogr" legend_exp="" expanded="0" checked="Qt::Checked">
       <customproperties/>
     </layer-tree-layer>
-    <layer-tree-layer checked="Qt::Checked" name="wdat1km10_test" id="wdat1km10_test20130331092956274" expanded="0" source="./wdat1km10_test.tif" providerKey="gdal">
+    <layer-tree-layer id="wdat1km10_test20130331092956274" source="./wdat1km10_test.tif" name="wdat1km10_test" providerKey="gdal" legend_exp="" expanded="0" checked="Qt::Checked">
       <customproperties/>
     </layer-tree-layer>
-    <layer-tree-layer checked="Qt::Checked" name="kdat10km1_test" id="kdat10km1_test20130331092952534" expanded="0" source="./kdat10km1_test.tif" providerKey="gdal">
+    <layer-tree-layer id="kdat10km1_test20130331092952534" source="./kdat10km1_test.tif" name="kdat10km1_test" providerKey="gdal" legend_exp="" expanded="0" checked="Qt::Checked">
       <customproperties/>
     </layer-tree-layer>
-    <layer-tree-layer checked="Qt::Checked" name="corine2006_z0_test_gk3" id="corine2006_z0_test_gk320130423163031893" expanded="0" source="./corine2006_z0_test_gk3.tif" providerKey="gdal">
+    <layer-tree-layer id="corine2006_z0_test_gk320130423163031893" source="./corine2006_z0_test_gk3.tif" name="corine2006_z0_test_gk3" providerKey="gdal" legend_exp="" expanded="0" checked="Qt::Checked">
       <customproperties/>
     </layer-tree-layer>
-    <layer-tree-layer checked="Qt::Checked" name="cdat10km1_test" id="cdat10km1_test20130331092943187" expanded="0" source="./cdat10km1_test.tif" providerKey="gdal">
+    <layer-tree-layer id="cdat10km1_test20130331092943187" source="./cdat10km1_test.tif" name="cdat10km1_test" providerKey="gdal" legend_exp="" expanded="0" checked="Qt::Checked">
       <customproperties/>
     </layer-tree-layer>
     <custom-order enabled="0">
@@ -46,10 +47,10 @@
       <item>cdat10km1_test20130331092943187</item>
     </custom-order>
   </layer-tree-group>
-  <snapping-settings enabled="1" intersection-snapping="0" mode="3" tolerance="0" type="1" unit="2">
+  <snapping-settings unit="2" enabled="1" mode="3" tolerance="0" type="1" intersection-snapping="0">
     <individual-layer-settings>
-      <layer-setting enabled="0" units="1" id="dwd_stationen_test20130331092958700" tolerance="12" type="1"/>
-      <layer-setting enabled="0" units="1" id="standort_test20130331092958849" tolerance="12" type="1"/>
+      <layer-setting id="standort_test20130331092958849" enabled="0" tolerance="12" type="1" units="1"/>
+      <layer-setting id="dwd_stationen_test20130331092958700" enabled="0" tolerance="12" type="1" units="1"/>
     </individual-layer-settings>
   </snapping-settings>
   <relations/>
@@ -64,6 +65,7 @@
     <rotation>0</rotation>
     <destinationsrs>
       <spatialrefsys>
+        <wkt>PROJCS["DHDN / 3-degree Gauss-Kruger zone 3",GEOGCS["DHDN",DATUM["Deutsches_Hauptdreiecksnetz",SPHEROID["Bessel 1841",6377397.155,299.1528128,AUTHORITY["EPSG","7004"]],TOWGS84[598.1,73.7,418.2,0.202,0.045,-2.455,6.7],AUTHORITY["EPSG","6314"]],PRIMEM["Greenwich",0,AUTHORITY["EPSG","8901"]],UNIT["degree",0.0174532925199433,AUTHORITY["EPSG","9122"]],AUTHORITY["EPSG","4314"]],PROJECTION["Transverse_Mercator"],PARAMETER["latitude_of_origin",0],PARAMETER["central_meridian",9],PARAMETER["scale_factor",1],PARAMETER["false_easting",3500000],PARAMETER["false_northing",0],UNIT["metre",1,AUTHORITY["EPSG","9001"]],AUTHORITY["EPSG","31467"]]</wkt>
         <proj4>+proj=tmerc +lat_0=0 +lon_0=9 +k=1 +x_0=3500000 +y_0=0 +ellps=bessel +towgs84=598.1,73.7,418.2,0.202,0.045,-2.455,6.7 +units=m +no_defs</proj4>
         <srsid>2647</srsid>
         <srid>31467</srid>
@@ -75,44 +77,45 @@
       </spatialrefsys>
     </destinationsrs>
     <rendermaptile>0</rendermaptile>
+    <expressionContextScope/>
   </mapcanvas>
   <projectModels/>
   <legend updateDrawingOrder="true">
-    <legendlayer checked="Qt::Checked" name="standort_test" open="false" drawingOrder="-1" showFeatureCount="0">
-      <filegroup hidden="false" open="false">
-        <legendlayerfile visible="1" layerid="standort_test20130331092958849" isInOverview="0"/>
+    <legendlayer drawingOrder="-1" name="standort_test" showFeatureCount="0" open="false" checked="Qt::Checked">
+      <filegroup open="false" hidden="false">
+        <legendlayerfile isInOverview="0" visible="1" layerid="standort_test20130331092958849"/>
       </filegroup>
     </legendlayer>
-    <legendlayer checked="Qt::Checked" name="dwd_stationen_test" open="false" drawingOrder="-1" showFeatureCount="0">
-      <filegroup hidden="false" open="false">
-        <legendlayerfile visible="1" layerid="dwd_stationen_test20130331092958700" isInOverview="0"/>
+    <legendlayer drawingOrder="-1" name="dwd_stationen_test" showFeatureCount="0" open="false" checked="Qt::Checked">
+      <filegroup open="false" hidden="false">
+        <legendlayerfile isInOverview="0" visible="1" layerid="dwd_stationen_test20130331092958700"/>
       </filegroup>
     </legendlayer>
-    <legendlayer checked="Qt::Checked" name="wdat1km10_test" open="false" drawingOrder="-1" showFeatureCount="0">
-      <filegroup hidden="false" open="false">
-        <legendlayerfile visible="1" layerid="wdat1km10_test20130331092956274" isInOverview="0"/>
+    <legendlayer drawingOrder="-1" name="wdat1km10_test" showFeatureCount="0" open="false" checked="Qt::Checked">
+      <filegroup open="false" hidden="false">
+        <legendlayerfile isInOverview="0" visible="1" layerid="wdat1km10_test20130331092956274"/>
       </filegroup>
     </legendlayer>
-    <legendlayer checked="Qt::Checked" name="kdat10km1_test" open="false" drawingOrder="-1" showFeatureCount="0">
-      <filegroup hidden="false" open="false">
-        <legendlayerfile visible="1" layerid="kdat10km1_test20130331092952534" isInOverview="0"/>
+    <legendlayer drawingOrder="-1" name="kdat10km1_test" showFeatureCount="0" open="false" checked="Qt::Checked">
+      <filegroup open="false" hidden="false">
+        <legendlayerfile isInOverview="0" visible="1" layerid="kdat10km1_test20130331092952534"/>
       </filegroup>
     </legendlayer>
-    <legendlayer checked="Qt::Checked" name="corine2006_z0_test_gk3" open="false" drawingOrder="-1" showFeatureCount="0">
-      <filegroup hidden="false" open="false">
-        <legendlayerfile visible="1" layerid="corine2006_z0_test_gk320130423163031893" isInOverview="0"/>
+    <legendlayer drawingOrder="-1" name="corine2006_z0_test_gk3" showFeatureCount="0" open="false" checked="Qt::Checked">
+      <filegroup open="false" hidden="false">
+        <legendlayerfile isInOverview="0" visible="1" layerid="corine2006_z0_test_gk320130423163031893"/>
       </filegroup>
     </legendlayer>
-    <legendlayer checked="Qt::Checked" name="cdat10km1_test" open="false" drawingOrder="-1" showFeatureCount="0">
-      <filegroup hidden="false" open="false">
-        <legendlayerfile visible="1" layerid="cdat10km1_test20130331092943187" isInOverview="0"/>
+    <legendlayer drawingOrder="-1" name="cdat10km1_test" showFeatureCount="0" open="false" checked="Qt::Checked">
+      <filegroup open="false" hidden="false">
+        <legendlayerfile isInOverview="0" visible="1" layerid="cdat10km1_test20130331092943187"/>
       </filegroup>
     </legendlayer>
   </legend>
   <mapViewDocks/>
   <mapViewDocks3D/>
   <projectlayers>
-    <maplayer refreshOnNotifyMessage="" refreshOnNotifyEnabled="0" styleCategories="AllStyleCategories" autoRefreshEnabled="0" autoRefreshTime="0" maxScale="0" type="raster" minScale="1e+8" hasScaleBasedVisibilityFlag="0">
+    <maplayer autoRefreshTime="0" minScale="1e+8" refreshOnNotifyEnabled="0" styleCategories="AllStyleCategories" hasScaleBasedVisibilityFlag="0" autoRefreshEnabled="0" refreshOnNotifyMessage="" type="raster" maxScale="0">
       <extent>
         <xmin>3468000</xmin>
         <ymin>5381000</ymin>
@@ -127,6 +130,7 @@
       <layername>cdat10km1_test</layername>
       <srs>
         <spatialrefsys>
+          <wkt>PROJCS["DHDN / 3-degree Gauss-Kruger zone 3",GEOGCS["DHDN",DATUM["Deutsches_Hauptdreiecksnetz",SPHEROID["Bessel 1841",6377397.155,299.1528128,AUTHORITY["EPSG","7004"]],TOWGS84[598.1,73.7,418.2,0.202,0.045,-2.455,6.7],AUTHORITY["EPSG","6314"]],PRIMEM["Greenwich",0,AUTHORITY["EPSG","8901"]],UNIT["degree",0.0174532925199433,AUTHORITY["EPSG","9122"]],AUTHORITY["EPSG","4314"]],PROJECTION["Transverse_Mercator"],PARAMETER["latitude_of_origin",0],PARAMETER["central_meridian",9],PARAMETER["scale_factor",1],PARAMETER["false_easting",3500000],PARAMETER["false_northing",0],UNIT["metre",1,AUTHORITY["EPSG","9001"]],AUTHORITY["EPSG","31467"]]</wkt>
           <proj4>+proj=tmerc +lat_0=0 +lon_0=9 +k=1 +x_0=3500000 +y_0=0 +ellps=bessel +towgs84=598.1,73.7,418.2,0.202,0.045,-2.455,6.7 +units=m +no_defs</proj4>
           <srsid>2647</srsid>
           <srid>31467</srid>
@@ -149,6 +153,93 @@
         <encoding></encoding>
         <crs>
           <spatialrefsys>
+            <wkt></wkt>
+            <proj4></proj4>
+            <srsid>0</srsid>
+            <srid>0</srid>
+            <authid></authid>
+            <description></description>
+            <projectionacronym></projectionacronym>
+            <ellipsoidacronym></ellipsoidacronym>
+            <geographicflag>false</geographicflag>
+          </spatialrefsys>
+        </crs>
+        <extent/>
+      </resourceMetadata>
+      <provider>gdal</provider>
+      <noData>
+        <noDataList useSrcNoData="1" bandNo="1"/>
+      </noData>
+      <map-layer-style-manager current="default">
+        <map-layer-style name="default"/>
+      </map-layer-style-manager>
+      <flags>
+        <Identifiable>1</Identifiable>
+        <Removable>1</Removable>
+        <Searchable>1</Searchable>
+      </flags>
+      <customproperties/>
+      <pipe>
+        <rasterrenderer opacity="1" gradient="BlackToWhite" alphaBand="-1" grayBand="1" type="singlebandgray">
+          <minMaxOrigin>
+            <limits>None</limits>
+            <extent>WholeRaster</extent>
+            <statAccuracy>Estimated</statAccuracy>
+            <cumulativeCutLower>0.02</cumulativeCutLower>
+            <cumulativeCutUpper>0.98</cumulativeCutUpper>
+            <stdDevFactor>2</stdDevFactor>
+          </minMaxOrigin>
+          <contrastEnhancement>
+            <minValue>15</minValue>
+            <maxValue>53</maxValue>
+            <algorithm>StretchAndClipToMinimumMaximum</algorithm>
+          </contrastEnhancement>
+        </rasterrenderer>
+        <brightnesscontrast brightness="0" contrast="0"/>
+        <huesaturation saturation="0" colorizeOn="0" grayscaleMode="0" colorizeGreen="128" colorizeBlue="128" colorizeStrength="100" colorizeRed="255"/>
+        <rasterresampler maxOversampling="2"/>
+      </pipe>
+      <blendMode>0</blendMode>
+    </maplayer>
+    <maplayer autoRefreshTime="0" minScale="1e+8" refreshOnNotifyEnabled="0" styleCategories="AllStyleCategories" hasScaleBasedVisibilityFlag="0" autoRefreshEnabled="0" refreshOnNotifyMessage="" type="raster" maxScale="0">
+      <extent>
+        <xmin>3467962.46631180122494698</xmin>
+        <ymin>5381212.26091426610946655</ymin>
+        <xmax>3547094.73576229484751821</xmax>
+        <ymax>5442037.33577089477330446</ymax>
+      </extent>
+      <id>corine2006_z0_test_gk320130423163031893</id>
+      <datasource>./corine2006_z0_test_gk3.tif</datasource>
+      <keywordList>
+        <value></value>
+      </keywordList>
+      <layername>corine2006_z0_test_gk3</layername>
+      <srs>
+        <spatialrefsys>
+          <wkt>PROJCS["DHDN / 3-degree Gauss-Kruger zone 3",GEOGCS["DHDN",DATUM["Deutsches_Hauptdreiecksnetz",SPHEROID["Bessel 1841",6377397.155,299.1528128,AUTHORITY["EPSG","7004"]],TOWGS84[598.1,73.7,418.2,0.202,0.045,-2.455,6.7],AUTHORITY["EPSG","6314"]],PRIMEM["Greenwich",0,AUTHORITY["EPSG","8901"]],UNIT["degree",0.0174532925199433,AUTHORITY["EPSG","9122"]],AUTHORITY["EPSG","4314"]],PROJECTION["Transverse_Mercator"],PARAMETER["latitude_of_origin",0],PARAMETER["central_meridian",9],PARAMETER["scale_factor",1],PARAMETER["false_easting",3500000],PARAMETER["false_northing",0],UNIT["metre",1,AUTHORITY["EPSG","9001"]],AUTHORITY["EPSG","31467"]]</wkt>
+          <proj4>+proj=tmerc +lat_0=0 +lon_0=9 +k=1 +x_0=3500000 +y_0=0 +ellps=bessel +towgs84=598.1,73.7,418.2,0.202,0.045,-2.455,6.7 +units=m +no_defs</proj4>
+          <srsid>2647</srsid>
+          <srid>31467</srid>
+          <authid>EPSG:31467</authid>
+          <description>DHDN / 3-degree Gauss-Kruger zone 3</description>
+          <projectionacronym>tmerc</projectionacronym>
+          <ellipsoidacronym>bessel</ellipsoidacronym>
+          <geographicflag>false</geographicflag>
+        </spatialrefsys>
+      </srs>
+      <resourceMetadata>
+        <identifier></identifier>
+        <parentidentifier></parentidentifier>
+        <language></language>
+        <type></type>
+        <title></title>
+        <abstract></abstract>
+        <links/>
+        <fees></fees>
+        <encoding></encoding>
+        <crs>
+          <spatialrefsys>
+            <wkt></wkt>
             <proj4></proj4>
             <srsid>0</srsid>
             <srid>0</srid>
@@ -175,91 +266,7 @@
       </flags>
       <customproperties/>
       <pipe>
-        <rasterrenderer alphaBand="-1" opacity="1" type="singlebandgray" gradient="BlackToWhite" grayBand="1">
-          <minMaxOrigin>
-            <limits>None</limits>
-            <extent>WholeRaster</extent>
-            <statAccuracy>Estimated</statAccuracy>
-            <cumulativeCutLower>0.02</cumulativeCutLower>
-            <cumulativeCutUpper>0.98</cumulativeCutUpper>
-            <stdDevFactor>2</stdDevFactor>
-          </minMaxOrigin>
-          <contrastEnhancement>
-            <minValue>15</minValue>
-            <maxValue>53</maxValue>
-            <algorithm>StretchAndClipToMinimumMaximum</algorithm>
-          </contrastEnhancement>
-        </rasterrenderer>
-        <brightnesscontrast contrast="0" brightness="0"/>
-        <huesaturation colorizeRed="255" colorizeOn="0" saturation="0" grayscaleMode="0" colorizeStrength="100" colorizeGreen="128" colorizeBlue="128"/>
-        <rasterresampler maxOversampling="2"/>
-      </pipe>
-      <blendMode>0</blendMode>
-    </maplayer>
-    <maplayer refreshOnNotifyMessage="" refreshOnNotifyEnabled="0" styleCategories="AllStyleCategories" autoRefreshEnabled="0" autoRefreshTime="0" maxScale="0" type="raster" minScale="1e+8" hasScaleBasedVisibilityFlag="0">
-      <extent>
-        <xmin>3467962.46631180122494698</xmin>
-        <ymin>5381212.26091426610946655</ymin>
-        <xmax>3547094.73576229484751821</xmax>
-        <ymax>5442037.33577089477330446</ymax>
-      </extent>
-      <id>corine2006_z0_test_gk320130423163031893</id>
-      <datasource>./corine2006_z0_test_gk3.tif</datasource>
-      <keywordList>
-        <value></value>
-      </keywordList>
-      <layername>corine2006_z0_test_gk3</layername>
-      <srs>
-        <spatialrefsys>
-          <proj4>+proj=tmerc +lat_0=0 +lon_0=9 +k=1 +x_0=3500000 +y_0=0 +ellps=bessel +towgs84=598.1,73.7,418.2,0.202,0.045,-2.455,6.7 +units=m +no_defs</proj4>
-          <srsid>2647</srsid>
-          <srid>31467</srid>
-          <authid>EPSG:31467</authid>
-          <description>DHDN / 3-degree Gauss-Kruger zone 3</description>
-          <projectionacronym>tmerc</projectionacronym>
-          <ellipsoidacronym>bessel</ellipsoidacronym>
-          <geographicflag>false</geographicflag>
-        </spatialrefsys>
-      </srs>
-      <resourceMetadata>
-        <identifier></identifier>
-        <parentidentifier></parentidentifier>
-        <language></language>
-        <type></type>
-        <title></title>
-        <abstract></abstract>
-        <links/>
-        <fees></fees>
-        <encoding></encoding>
-        <crs>
-          <spatialrefsys>
-            <proj4></proj4>
-            <srsid>0</srsid>
-            <srid>0</srid>
-            <authid></authid>
-            <description></description>
-            <projectionacronym></projectionacronym>
-            <ellipsoidacronym></ellipsoidacronym>
-            <geographicflag>false</geographicflag>
-          </spatialrefsys>
-        </crs>
-        <extent/>
-      </resourceMetadata>
-      <provider>gdal</provider>
-      <noData>
-        <noDataList useSrcNoData="1" bandNo="1"/>
-      </noData>
-      <map-layer-style-manager current="default">
-        <map-layer-style name="default"/>
-      </map-layer-style-manager>
-      <flags>
-        <Identifiable>1</Identifiable>
-        <Removable>1</Removable>
-        <Searchable>1</Searchable>
-      </flags>
-      <customproperties/>
-      <pipe>
-        <rasterrenderer alphaBand="-1" opacity="1" type="singlebandgray" gradient="BlackToWhite" grayBand="1">
+        <rasterrenderer opacity="1" gradient="BlackToWhite" alphaBand="-1" grayBand="1" type="singlebandgray">
           <minMaxOrigin>
             <limits>None</limits>
             <extent>WholeRaster</extent>
@@ -274,13 +281,13 @@
             <algorithm>StretchAndClipToMinimumMaximum</algorithm>
           </contrastEnhancement>
         </rasterrenderer>
-        <brightnesscontrast contrast="0" brightness="0"/>
-        <huesaturation colorizeRed="255" colorizeOn="0" saturation="0" grayscaleMode="0" colorizeStrength="100" colorizeGreen="128" colorizeBlue="128"/>
+        <brightnesscontrast brightness="0" contrast="0"/>
+        <huesaturation saturation="0" colorizeOn="0" grayscaleMode="0" colorizeGreen="128" colorizeBlue="128" colorizeStrength="100" colorizeRed="255"/>
         <rasterresampler maxOversampling="2"/>
       </pipe>
       <blendMode>0</blendMode>
     </maplayer>
-    <maplayer geometry="Point" refreshOnNotifyMessage="" refreshOnNotifyEnabled="0" styleCategories="AllStyleCategories" autoRefreshEnabled="0" simplifyDrawingHints="1" autoRefreshTime="0" labelsEnabled="1" simplifyLocal="1" maxScale="0" readOnly="0" type="vector" minScale="1e+8" simplifyAlgorithm="0" simplifyDrawingTol="1" simplifyMaxScale="1" hasScaleBasedVisibilityFlag="0">
+    <maplayer geometry="Point" autoRefreshTime="0" maxScale="0" autoRefreshEnabled="0" simplifyLocal="1" labelsEnabled="1" hasScaleBasedVisibilityFlag="0" minScale="1e+8" refreshOnNotifyMessage="" simplifyDrawingTol="1" styleCategories="AllStyleCategories" wkbType="PointZ" simplifyAlgorithm="0" readOnly="0" simplifyMaxScale="1" simplifyDrawingHints="1" refreshOnNotifyEnabled="0" type="vector">
       <extent>
         <xmin>3477870.2354538906365633</xmin>
         <ymin>5394645.76025507133454084</ymin>
@@ -295,6 +302,7 @@
       <layername>dwd_stationen_test</layername>
       <srs>
         <spatialrefsys>
+          <wkt>PROJCS["DHDN / 3-degree Gauss-Kruger zone 3",GEOGCS["DHDN",DATUM["Deutsches_Hauptdreiecksnetz",SPHEROID["Bessel 1841",6377397.155,299.1528128,AUTHORITY["EPSG","7004"]],TOWGS84[598.1,73.7,418.2,0.202,0.045,-2.455,6.7],AUTHORITY["EPSG","6314"]],PRIMEM["Greenwich",0,AUTHORITY["EPSG","8901"]],UNIT["degree",0.0174532925199433,AUTHORITY["EPSG","9122"]],AUTHORITY["EPSG","4314"]],PROJECTION["Transverse_Mercator"],PARAMETER["latitude_of_origin",0],PARAMETER["central_meridian",9],PARAMETER["scale_factor",1],PARAMETER["false_easting",3500000],PARAMETER["false_northing",0],UNIT["metre",1,AUTHORITY["EPSG","9001"]],AUTHORITY["EPSG","31467"]]</wkt>
           <proj4>+proj=tmerc +lat_0=0 +lon_0=9 +k=1 +x_0=3500000 +y_0=0 +ellps=bessel +towgs84=598.1,73.7,418.2,0.202,0.045,-2.455,6.7 +units=m +no_defs</proj4>
           <srsid>2647</srsid>
           <srid>31467</srid>
@@ -317,6 +325,7 @@
         <encoding></encoding>
         <crs>
           <spatialrefsys>
+            <wkt></wkt>
             <proj4></proj4>
             <srsid>0</srsid>
             <srid>0</srid>
@@ -324,7 +333,7 @@
             <description></description>
             <projectionacronym></projectionacronym>
             <ellipsoidacronym></ellipsoidacronym>
-            <geographicflag>false</geographicflag>
+            <geographicflag>true</geographicflag>
           </spatialrefsys>
         </crs>
         <extent/>
@@ -344,10 +353,10 @@
         <Removable>1</Removable>
         <Searchable>1</Searchable>
       </flags>
-      <renderer-v2 enableorderby="0" symbollevels="0" type="singleSymbol" forceraster="0">
+      <renderer-v2 enableorderby="0" forceraster="0" type="singleSymbol" symbollevels="0">
         <symbols>
-          <symbol alpha="1" name="0" type="marker" clip_to_extent="1" force_rhr="0">
-            <layer enabled="1" locked="0" pass="0" class="SimpleMarker">
+          <symbol name="0" force_rhr="0" alpha="1" clip_to_extent="1" type="marker">
+            <layer class="SimpleMarker" locked="0" enabled="1" pass="0">
               <prop v="0" k="angle"/>
               <prop v="255,128,0,255" k="color"/>
               <prop v="1" k="horizontal_anchor_point"/>
@@ -368,9 +377,9 @@
               <prop v="1" k="vertical_anchor_point"/>
               <data_defined_properties>
                 <Option type="Map">
-                  <Option name="name" value="" type="QString"/>
+                  <Option value="" name="name" type="QString"/>
                   <Option name="properties"/>
-                  <Option name="type" value="collection" type="QString"/>
+                  <Option value="collection" name="type" type="QString"/>
                 </Option>
               </data_defined_properties>
             </layer>
@@ -397,28 +406,29 @@
         </field>
       </fieldConfiguration>
       <aliases>
-        <alias name="" field="FID" index="0"/>
+        <alias field="FID" name="" index="0"/>
       </aliases>
       <excludeAttributesWMS/>
       <excludeAttributesWFS/>
       <defaults>
-        <default applyOnUpdate="0" expression="" field="FID"/>
+        <default field="FID" expression="" applyOnUpdate="0"/>
       </defaults>
       <constraints>
-        <constraint unique_strength="0" field="FID" notnull_strength="0" exp_strength="0" constraints="0"/>
+        <constraint field="FID" unique_strength="0" constraints="0" notnull_strength="0" exp_strength="0"/>
       </constraints>
       <constraintExpressions>
         <constraint field="FID" exp="" desc=""/>
       </constraintExpressions>
       <expressionfields/>
       <attributeactions/>
-      <attributetableconfig sortOrder="0" actionWidgetStyle="dropDown" sortExpression="">
+      <attributetableconfig sortExpression="" sortOrder="0" actionWidgetStyle="dropDown">
         <columns/>
       </attributetableconfig>
       <conditionalstyles>
         <rowstyles/>
         <fieldstyles/>
       </conditionalstyles>
+      <storedexpressions/>
       <editform tolerant="1">.</editform>
       <editforminit/>
       <editforminitcodesource>0</editforminitcodesource>
@@ -432,7 +442,7 @@
       <previewExpression>"FID"</previewExpression>
       <mapTip></mapTip>
     </maplayer>
-    <maplayer refreshOnNotifyMessage="" refreshOnNotifyEnabled="0" styleCategories="AllStyleCategories" autoRefreshEnabled="0" autoRefreshTime="0" maxScale="0" type="raster" minScale="1e+8" hasScaleBasedVisibilityFlag="0">
+    <maplayer autoRefreshTime="0" minScale="1e+8" refreshOnNotifyEnabled="0" styleCategories="AllStyleCategories" hasScaleBasedVisibilityFlag="0" autoRefreshEnabled="0" refreshOnNotifyMessage="" type="raster" maxScale="0">
       <extent>
         <xmin>3468000</xmin>
         <ymin>5381000</ymin>
@@ -447,6 +457,7 @@
       <layername>kdat10km1_test</layername>
       <srs>
         <spatialrefsys>
+          <wkt>PROJCS["DHDN / 3-degree Gauss-Kruger zone 3",GEOGCS["DHDN",DATUM["Deutsches_Hauptdreiecksnetz",SPHEROID["Bessel 1841",6377397.155,299.1528128,AUTHORITY["EPSG","7004"]],TOWGS84[598.1,73.7,418.2,0.202,0.045,-2.455,6.7],AUTHORITY["EPSG","6314"]],PRIMEM["Greenwich",0,AUTHORITY["EPSG","8901"]],UNIT["degree",0.0174532925199433,AUTHORITY["EPSG","9122"]],AUTHORITY["EPSG","4314"]],PROJECTION["Transverse_Mercator"],PARAMETER["latitude_of_origin",0],PARAMETER["central_meridian",9],PARAMETER["scale_factor",1],PARAMETER["false_easting",3500000],PARAMETER["false_northing",0],UNIT["metre",1,AUTHORITY["EPSG","9001"]],AUTHORITY["EPSG","31467"]]</wkt>
           <proj4>+proj=tmerc +lat_0=0 +lon_0=9 +k=1 +x_0=3500000 +y_0=0 +ellps=bessel +towgs84=598.1,73.7,418.2,0.202,0.045,-2.455,6.7 +units=m +no_defs</proj4>
           <srsid>2647</srsid>
           <srid>31467</srid>
@@ -469,6 +480,7 @@
         <encoding></encoding>
         <crs>
           <spatialrefsys>
+            <wkt></wkt>
             <proj4></proj4>
             <srsid>0</srsid>
             <srid>0</srid>
@@ -476,7 +488,7 @@
             <description></description>
             <projectionacronym></projectionacronym>
             <ellipsoidacronym></ellipsoidacronym>
-            <geographicflag>false</geographicflag>
+            <geographicflag>true</geographicflag>
           </spatialrefsys>
         </crs>
         <extent/>
@@ -495,7 +507,7 @@
       </flags>
       <customproperties/>
       <pipe>
-        <rasterrenderer alphaBand="-1" opacity="1" type="singlebandgray" gradient="BlackToWhite" grayBand="1">
+        <rasterrenderer opacity="1" gradient="BlackToWhite" alphaBand="-1" grayBand="1" type="singlebandgray">
           <minMaxOrigin>
             <limits>None</limits>
             <extent>WholeRaster</extent>
@@ -510,13 +522,13 @@
             <algorithm>StretchAndClipToMinimumMaximum</algorithm>
           </contrastEnhancement>
         </rasterrenderer>
-        <brightnesscontrast contrast="0" brightness="0"/>
-        <huesaturation colorizeRed="255" colorizeOn="0" saturation="0" grayscaleMode="0" colorizeStrength="100" colorizeGreen="128" colorizeBlue="128"/>
+        <brightnesscontrast brightness="0" contrast="0"/>
+        <huesaturation saturation="0" colorizeOn="0" grayscaleMode="0" colorizeGreen="128" colorizeBlue="128" colorizeStrength="100" colorizeRed="255"/>
         <rasterresampler maxOversampling="2"/>
       </pipe>
       <blendMode>0</blendMode>
     </maplayer>
-    <maplayer geometry="Point" refreshOnNotifyMessage="" refreshOnNotifyEnabled="0" styleCategories="AllStyleCategories" autoRefreshEnabled="0" simplifyDrawingHints="1" autoRefreshTime="0" labelsEnabled="1" simplifyLocal="1" maxScale="0" readOnly="0" type="vector" minScale="1e+8" simplifyAlgorithm="0" simplifyDrawingTol="1" simplifyMaxScale="1" hasScaleBasedVisibilityFlag="0">
+    <maplayer geometry="Point" autoRefreshTime="0" maxScale="0" autoRefreshEnabled="0" simplifyLocal="1" labelsEnabled="1" hasScaleBasedVisibilityFlag="0" minScale="1e+8" refreshOnNotifyMessage="" simplifyDrawingTol="1" styleCategories="AllStyleCategories" wkbType="PointZ" simplifyAlgorithm="0" readOnly="0" simplifyMaxScale="1" simplifyDrawingHints="1" refreshOnNotifyEnabled="0" type="vector">
       <extent>
         <xmin>3517600.68546707555651665</xmin>
         <ymin>5406204.70377413742244244</ymin>
@@ -531,6 +543,7 @@
       <layername>standort_test</layername>
       <srs>
         <spatialrefsys>
+          <wkt>PROJCS["DHDN / 3-degree Gauss-Kruger zone 3",GEOGCS["DHDN",DATUM["Deutsches_Hauptdreiecksnetz",SPHEROID["Bessel 1841",6377397.155,299.1528128,AUTHORITY["EPSG","7004"]],TOWGS84[598.1,73.7,418.2,0.202,0.045,-2.455,6.7],AUTHORITY["EPSG","6314"]],PRIMEM["Greenwich",0,AUTHORITY["EPSG","8901"]],UNIT["degree",0.0174532925199433,AUTHORITY["EPSG","9122"]],AUTHORITY["EPSG","4314"]],PROJECTION["Transverse_Mercator"],PARAMETER["latitude_of_origin",0],PARAMETER["central_meridian",9],PARAMETER["scale_factor",1],PARAMETER["false_easting",3500000],PARAMETER["false_northing",0],UNIT["metre",1,AUTHORITY["EPSG","9001"]],AUTHORITY["EPSG","31467"]]</wkt>
           <proj4>+proj=tmerc +lat_0=0 +lon_0=9 +k=1 +x_0=3500000 +y_0=0 +ellps=bessel +towgs84=598.1,73.7,418.2,0.202,0.045,-2.455,6.7 +units=m +no_defs</proj4>
           <srsid>2647</srsid>
           <srid>31467</srid>
@@ -553,6 +566,7 @@
         <encoding></encoding>
         <crs>
           <spatialrefsys>
+            <wkt></wkt>
             <proj4></proj4>
             <srsid>0</srsid>
             <srid>0</srid>
@@ -560,7 +574,7 @@
             <description></description>
             <projectionacronym></projectionacronym>
             <ellipsoidacronym></ellipsoidacronym>
-            <geographicflag>false</geographicflag>
+            <geographicflag>true</geographicflag>
           </spatialrefsys>
         </crs>
         <extent/>
@@ -580,10 +594,10 @@
         <Removable>1</Removable>
         <Searchable>1</Searchable>
       </flags>
-      <renderer-v2 enableorderby="0" symbollevels="0" type="singleSymbol" forceraster="0">
+      <renderer-v2 enableorderby="0" forceraster="0" type="singleSymbol" symbollevels="0">
         <symbols>
-          <symbol alpha="1" name="0" type="marker" clip_to_extent="1" force_rhr="0">
-            <layer enabled="1" locked="0" pass="0" class="SimpleMarker">
+          <symbol name="0" force_rhr="0" alpha="1" clip_to_extent="1" type="marker">
+            <layer class="SimpleMarker" locked="0" enabled="1" pass="0">
               <prop v="0" k="angle"/>
               <prop v="255,0,0,255" k="color"/>
               <prop v="1" k="horizontal_anchor_point"/>
@@ -604,9 +618,9 @@
               <prop v="1" k="vertical_anchor_point"/>
               <data_defined_properties>
                 <Option type="Map">
-                  <Option name="name" value="" type="QString"/>
+                  <Option value="" name="name" type="QString"/>
                   <Option name="properties"/>
-                  <Option name="type" value="collection" type="QString"/>
+                  <Option value="collection" name="type" type="QString"/>
                 </Option>
               </data_defined_properties>
             </layer>
@@ -654,24 +668,24 @@
         </field>
       </fieldConfiguration>
       <aliases>
-        <alias name="" field="Name" index="0"/>
-        <alias name="" field="Descriptio" index="1"/>
-        <alias name="" field="xcoord" index="2"/>
-        <alias name="" field="ycoord" index="3"/>
+        <alias field="Name" name="" index="0"/>
+        <alias field="Descriptio" name="" index="1"/>
+        <alias field="xcoord" name="" index="2"/>
+        <alias field="ycoord" name="" index="3"/>
       </aliases>
       <excludeAttributesWMS/>
       <excludeAttributesWFS/>
       <defaults>
-        <default applyOnUpdate="0" expression="" field="Name"/>
-        <default applyOnUpdate="0" expression="" field="Descriptio"/>
-        <default applyOnUpdate="0" expression="" field="xcoord"/>
-        <default applyOnUpdate="0" expression="" field="ycoord"/>
+        <default field="Name" expression="" applyOnUpdate="0"/>
+        <default field="Descriptio" expression="" applyOnUpdate="0"/>
+        <default field="xcoord" expression="" applyOnUpdate="0"/>
+        <default field="ycoord" expression="" applyOnUpdate="0"/>
       </defaults>
       <constraints>
-        <constraint unique_strength="0" field="Name" notnull_strength="0" exp_strength="0" constraints="0"/>
-        <constraint unique_strength="0" field="Descriptio" notnull_strength="0" exp_strength="0" constraints="0"/>
-        <constraint unique_strength="0" field="xcoord" notnull_strength="0" exp_strength="0" constraints="0"/>
-        <constraint unique_strength="0" field="ycoord" notnull_strength="0" exp_strength="0" constraints="0"/>
+        <constraint field="Name" unique_strength="0" constraints="0" notnull_strength="0" exp_strength="0"/>
+        <constraint field="Descriptio" unique_strength="0" constraints="0" notnull_strength="0" exp_strength="0"/>
+        <constraint field="xcoord" unique_strength="0" constraints="0" notnull_strength="0" exp_strength="0"/>
+        <constraint field="ycoord" unique_strength="0" constraints="0" notnull_strength="0" exp_strength="0"/>
       </constraints>
       <constraintExpressions>
         <constraint field="Name" exp="" desc=""/>
@@ -683,13 +697,14 @@
       <attributeactions>
         <defaultAction value="{00000000-0000-0000-0000-000000000000}" key="Canvas"/>
       </attributeactions>
-      <attributetableconfig sortOrder="0" actionWidgetStyle="dropDown" sortExpression="">
+      <attributetableconfig sortExpression="" sortOrder="0" actionWidgetStyle="dropDown">
         <columns/>
       </attributetableconfig>
       <conditionalstyles>
         <rowstyles/>
         <fieldstyles/>
       </conditionalstyles>
+      <storedexpressions/>
       <editform tolerant="1">.</editform>
       <editforminit/>
       <editforminitcodesource>0</editforminitcodesource>
@@ -703,7 +718,7 @@
       <previewExpression>"Name"</previewExpression>
       <mapTip></mapTip>
     </maplayer>
-    <maplayer refreshOnNotifyMessage="" refreshOnNotifyEnabled="0" styleCategories="AllStyleCategories" autoRefreshEnabled="0" autoRefreshTime="0" maxScale="0" type="raster" minScale="1e+8" hasScaleBasedVisibilityFlag="0">
+    <maplayer autoRefreshTime="0" minScale="1e+8" refreshOnNotifyEnabled="0" styleCategories="AllStyleCategories" hasScaleBasedVisibilityFlag="0" autoRefreshEnabled="0" refreshOnNotifyMessage="" type="raster" maxScale="0">
       <extent>
         <xmin>3468000</xmin>
         <ymin>5381000</ymin>
@@ -718,6 +733,7 @@
       <layername>wdat1km10_test</layername>
       <srs>
         <spatialrefsys>
+          <wkt>PROJCS["DHDN / 3-degree Gauss-Kruger zone 3",GEOGCS["DHDN",DATUM["Deutsches_Hauptdreiecksnetz",SPHEROID["Bessel 1841",6377397.155,299.1528128,AUTHORITY["EPSG","7004"]],TOWGS84[598.1,73.7,418.2,0.202,0.045,-2.455,6.7],AUTHORITY["EPSG","6314"]],PRIMEM["Greenwich",0,AUTHORITY["EPSG","8901"]],UNIT["degree",0.0174532925199433,AUTHORITY["EPSG","9122"]],AUTHORITY["EPSG","4314"]],PROJECTION["Transverse_Mercator"],PARAMETER["latitude_of_origin",0],PARAMETER["central_meridian",9],PARAMETER["scale_factor",1],PARAMETER["false_easting",3500000],PARAMETER["false_northing",0],UNIT["metre",1,AUTHORITY["EPSG","9001"]],AUTHORITY["EPSG","31467"]]</wkt>
           <proj4>+proj=tmerc +lat_0=0 +lon_0=9 +k=1 +x_0=3500000 +y_0=0 +ellps=bessel +towgs84=598.1,73.7,418.2,0.202,0.045,-2.455,6.7 +units=m +no_defs</proj4>
           <srsid>2647</srsid>
           <srid>31467</srid>
@@ -740,6 +756,7 @@
         <encoding></encoding>
         <crs>
           <spatialrefsys>
+            <wkt></wkt>
             <proj4></proj4>
             <srsid>0</srsid>
             <srid>0</srid>
@@ -747,7 +764,7 @@
             <description></description>
             <projectionacronym></projectionacronym>
             <ellipsoidacronym></ellipsoidacronym>
-            <geographicflag>false</geographicflag>
+            <geographicflag>true</geographicflag>
           </spatialrefsys>
         </crs>
         <extent/>
@@ -766,7 +783,7 @@
       </flags>
       <customproperties/>
       <pipe>
-        <rasterrenderer alphaBand="-1" opacity="1" type="singlebandgray" gradient="BlackToWhite" grayBand="1">
+        <rasterrenderer opacity="1" gradient="BlackToWhite" alphaBand="-1" grayBand="1" type="singlebandgray">
           <minMaxOrigin>
             <limits>None</limits>
             <extent>WholeRaster</extent>
@@ -781,8 +798,8 @@
             <algorithm>StretchAndClipToMinimumMaximum</algorithm>
           </contrastEnhancement>
         </rasterrenderer>
-        <brightnesscontrast contrast="0" brightness="0"/>
-        <huesaturation colorizeRed="255" colorizeOn="0" saturation="0" grayscaleMode="0" colorizeStrength="100" colorizeGreen="128" colorizeBlue="128"/>
+        <brightnesscontrast brightness="0" contrast="0"/>
+        <huesaturation saturation="0" colorizeOn="0" grayscaleMode="0" colorizeGreen="128" colorizeBlue="128" colorizeStrength="100" colorizeRed="255"/>
         <rasterresampler maxOversampling="2"/>
       </pipe>
       <blendMode>0</blendMode>
@@ -798,58 +815,60 @@
   </layerorder>
   <properties>
     <Gui>
-      <SelectionColorGreenPart type="int">255</SelectionColorGreenPart>
-      <SelectionColorBluePart type="int">0</SelectionColorBluePart>
       <CanvasColorBluePart type="int">255</CanvasColorBluePart>
-      <CanvasColorRedPart type="int">255</CanvasColorRedPart>
-      <SelectionColorRedPart type="int">255</SelectionColorRedPart>
-      <SelectionColorAlphaPart type="int">255</SelectionColorAlphaPart>
       <CanvasColorGreenPart type="int">255</CanvasColorGreenPart>
+      <CanvasColorRedPart type="int">255</CanvasColorRedPart>
+      <SelectionColorAlphaPart type="int">255</SelectionColorAlphaPart>
+      <SelectionColorBluePart type="int">0</SelectionColorBluePart>
+      <SelectionColorGreenPart type="int">255</SelectionColorGreenPart>
+      <SelectionColorRedPart type="int">255</SelectionColorRedPart>
     </Gui>
-    <WMSServiceTitle type="QString"></WMSServiceTitle>
-    <WMSServiceCapabilities type="bool">false</WMSServiceCapabilities>
-    <WMSContactMail type="QString"></WMSContactMail>
-    <WFSLayers type="QStringList"/>
-    <WMSServiceAbstract type="QString"></WMSServiceAbstract>
-    <PositionPrecision>
-      <DecimalPlaces type="int">2</DecimalPlaces>
-      <Automatic type="bool">true</Automatic>
-    </PositionPrecision>
-    <WMSContactPhone type="QString"></WMSContactPhone>
-    <WMSContactOrganization type="QString"></WMSContactOrganization>
-    <Legend>
-      <filterByMap type="bool">false</filterByMap>
-    </Legend>
-    <WMSAddWktGeometry type="bool">false</WMSAddWktGeometry>
     <Identify>
       <disabledLayers type="QStringList"/>
     </Identify>
-    <SpatialRefSys>
-      <ProjectCrs type="QString">EPSG:31467</ProjectCrs>
-      <ProjectionsEnabled type="int">1</ProjectionsEnabled>
-      <ProjectCRSID type="int">2647</ProjectCRSID>
-      <ProjectCRSProj4String type="QString">+proj=tmerc +lat_0=0 +lon_0=9 +k=1 +x_0=3500000 +y_0=0 +ellps=bessel +towgs84=598.1,73.7,418.2,0.202,0.045,-2.455,6.7 +units=m +no_defs</ProjectCRSProj4String>
-    </SpatialRefSys>
+    <Legend>
+      <filterByMap type="bool">false</filterByMap>
+    </Legend>
     <Measurement>
-      <DistanceUnits type="QString"></DistanceUnits>
       <AreaUnits type="QString"></AreaUnits>
+      <DistanceUnits type="QString"></DistanceUnits>
     </Measurement>
-    <WMSOnlineResource type="QString"></WMSOnlineResource>
-    <WMSContactPerson type="QString"></WMSContactPerson>
     <PAL>
-      <CandidatesPolygon type="int">30</CandidatesPolygon>
-      <SearchMethod type="int">0</SearchMethod>
-      <TextFormat type="int">0</TextFormat>
-      <CandidatesPoint type="int">16</CandidatesPoint>
       <CandidatesLine type="int">50</CandidatesLine>
-      <ShowingAllLabels type="bool">false</ShowingAllLabels>
-      <ShowingPartialsLabels type="bool">true</ShowingPartialsLabels>
+      <CandidatesPoint type="int">16</CandidatesPoint>
+      <CandidatesPolygon type="int">30</CandidatesPolygon>
       <DrawRectOnly type="bool">false</DrawRectOnly>
+      <DrawUnplaced type="bool">false</DrawUnplaced>
+      <SearchMethod type="int">0</SearchMethod>
+      <ShowingAllLabels type="bool">false</ShowingAllLabels>
       <ShowingCandidates type="bool">false</ShowingCandidates>
+      <ShowingPartialsLabels type="bool">true</ShowingPartialsLabels>
+      <TextFormat type="int">0</TextFormat>
+      <UnplacedColor type="QString">255,0,0,255</UnplacedColor>
     </PAL>
     <Paths>
       <Absolute type="bool">false</Absolute>
     </Paths>
+    <PositionPrecision>
+      <Automatic type="bool">true</Automatic>
+      <DecimalPlaces type="int">2</DecimalPlaces>
+    </PositionPrecision>
+    <SpatialRefSys>
+      <ProjectCRSID type="int">2647</ProjectCRSID>
+      <ProjectCRSProj4String type="QString">+proj=tmerc +lat_0=0 +lon_0=9 +k=1 +x_0=3500000 +y_0=0 +ellps=bessel +towgs84=598.1,73.7,418.2,0.202,0.045,-2.455,6.7 +units=m +no_defs</ProjectCRSProj4String>
+      <ProjectCrs type="QString">EPSG:31467</ProjectCrs>
+      <ProjectionsEnabled type="int">1</ProjectionsEnabled>
+    </SpatialRefSys>
+    <WFSLayers type="QStringList"/>
+    <WMSAddWktGeometry type="bool">false</WMSAddWktGeometry>
+    <WMSContactMail type="QString"></WMSContactMail>
+    <WMSContactOrganization type="QString"></WMSContactOrganization>
+    <WMSContactPerson type="QString"></WMSContactPerson>
+    <WMSContactPhone type="QString"></WMSContactPhone>
+    <WMSOnlineResource type="QString"></WMSOnlineResource>
+    <WMSServiceAbstract type="QString"></WMSServiceAbstract>
+    <WMSServiceCapabilities type="bool">false</WMSServiceCapabilities>
+    <WMSServiceTitle type="QString"></WMSServiceTitle>
   </properties>
   <visibility-presets/>
   <transformContext/>
@@ -866,4 +885,8 @@
   </projectMetadata>
   <Annotations/>
   <Layouts/>
+  <Bookmarks/>
+  <ProjectViewSettings UseProjectScales="0">
+    <Scales/>
+  </ProjectViewSettings>
 </qgis>
