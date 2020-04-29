@@ -15,7 +15,7 @@ Die Werte müssen als Rasterdaten in gleicher Auflösung aufbereitet sein.
 Installation
 ------------
 
-Das Plugin wird über das Plugin Repository des Geoinformatikbüro Dassau GmbH https://plugins.gbd-consult.de bereitgestellt. Sie können das Repository über den QGIS Pluginmanager einbinden. 
+Das Plugin wird über das [Plugin Repository der Geoinformatikbüro Dassau GmbH](https://plugins.gbd-consult.de) bereitgestellt. Sie können das Repository über den QGIS Pluginmanager einbinden. 
 
 <img src="/images/repodetails.png" width="300">
 
